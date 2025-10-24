@@ -55,7 +55,7 @@ function Pricing() {
               </div>
               <div className="mb-8">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-gray-900">$2,500</span>
+                  <span className="text-5xl font-bold text-gray-900">$500</span>
                   <span className="text-gray-600">/month</span>
                 </div>
                 <p className="text-sm text-gray-500 mt-2">Up to 500 evaluations/month</p>
