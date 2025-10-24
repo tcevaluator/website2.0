@@ -64,14 +64,14 @@ function App() {
         }`}>
           {/* Backdrop with blur */}
           <div
-            className={`absolute inset-0 bg-gray-900/95 backdrop-blur-xl transition-opacity duration-500 ${
+            className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-500 ${
               mobileMenuOpen ? 'opacity-100' : 'opacity-0'
             }`}
             onClick={() => setMobileMenuOpen(false)}
           />
 
           {/* Menu Content */}
-          <div className={`relative h-full flex flex-col bg-gray-900 transition-transform duration-500 ease-out ${
+          <div className={`relative h-full w-full flex flex-col bg-gray-900 transition-transform duration-500 ease-out ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
             {/* Header */}
