@@ -176,11 +176,17 @@ function App() {
       <section className="py-16 border-y border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-sm font-medium text-gray-500 mb-8 animate-fade-in">TRUSTED BY LEADING INSTITUTIONS</p>
-          <div className="flex flex-wrap items-center justify-center gap-12 opacity-40 grayscale">
-            <div className="text-2xl font-bold text-gray-900 animate-fade-in animation-delay-100">University Name</div>
-            <div className="text-2xl font-bold text-gray-900 animate-fade-in animation-delay-200">College Name</div>
-            <div className="text-2xl font-bold text-gray-900 animate-fade-in animation-delay-300">Institute</div>
-            <div className="text-2xl font-bold text-gray-900 animate-fade-in animation-delay-400">Academy</div>
+          <div className="flex flex-wrap items-center justify-center gap-16 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+            <img
+              src="/pc_logo.webp"
+              alt="Pacific College of Health and Science"
+              className="h-12 animate-fade-in animation-delay-100"
+            />
+            <img
+              src="/cleary-university-seeklogo-1.png"
+              alt="Cleary University"
+              className="h-16 animate-fade-in animation-delay-200"
+            />
           </div>
         </div>
       </section>
