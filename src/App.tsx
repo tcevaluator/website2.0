@@ -58,22 +58,19 @@ function App() {
           </div>
         </div>
 
-        {/* Mobile Navigation - Full Screen Overlay */}
-        <div className={`fixed inset-0 z-50 md:hidden transition-all duration-500 ${
-          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}>
-          {/* Backdrop with blur */}
+        {/* Mobile Navigation - Backdrop */}
+        {mobileMenuOpen && (
           <div
-            className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-500 ${
-              mobileMenuOpen ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden animate-fade-in"
             onClick={() => setMobileMenuOpen(false)}
           />
+        )}
 
-          {/* Menu Content */}
-          <div className={`absolute inset-0 h-full w-full flex flex-col bg-gray-900 z-10 transition-transform duration-500 ease-out ${
-            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}>
+        {/* Mobile Navigation - Menu Panel */}
+        <div className={`fixed inset-0 z-50 md:hidden bg-gray-900 transition-transform duration-500 ease-out pointer-events-none ${
+          mobileMenuOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full'
+        }`}>
+          <div className="h-full w-full flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <Link to="/" onClick={() => setMobileMenuOpen(false)}>
