@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, CheckCircle2, Mail, Phone, Building2, User, MessageSquare } from 'lucide-react';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 
 function BookDemo() {
   const [formData, setFormData] = useState({
@@ -24,49 +30,81 @@ function BookDemo() {
     setError('');
 
     try {
+      const cleanPhone = formData.phone.replace(/\D/g, '');
+
+      let hubspotSubmitted = false;
+      let hubspotError = null;
+
       const hubspotPortalId = import.meta.env.VITE_HUBSPOT_PORTAL_ID;
       const hubspotFormId = import.meta.env.VITE_HUBSPOT_FORM_ID;
 
-      if (!hubspotPortalId || !hubspotFormId) {
-        console.warn('HubSpot credentials not configured, simulating success');
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setSubmitted(true);
-        return;
-      }
+      if (hubspotPortalId && hubspotFormId &&
+          hubspotPortalId !== 'your_portal_id_here' &&
+          hubspotFormId !== 'your_form_id_here') {
+        try {
+          const response = await fetch(
+            `https://api.hsforms.com/submissions/v3/integration/submit/${hubspotPortalId}/${hubspotFormId}`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                fields: [
+                  { name: 'firstname', value: formData.firstName },
+                  { name: 'lastname', value: formData.lastName },
+                  { name: 'email', value: formData.email },
+                  { name: 'phone', value: cleanPhone },
+                  { name: 'company', value: formData.institution },
+                  { name: 'jobtitle', value: formData.role },
+                  { name: 'students_per_year', value: formData.studentsPerYear },
+                  { name: 'message', value: formData.message },
+                ],
+                context: {
+                  pageUri: window.location.href,
+                  pageName: 'Book a Demo',
+                },
+              }),
+            }
+          );
 
-      const cleanPhone = formData.phone.replace(/\D/g, '');
-
-      const response = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${hubspotPortalId}/${hubspotFormId}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            fields: [
-              { name: 'firstname', value: formData.firstName },
-              { name: 'lastname', value: formData.lastName },
-              { name: 'email', value: formData.email },
-              { name: 'phone', value: cleanPhone },
-              { name: 'company', value: formData.institution },
-              { name: 'jobtitle', value: formData.role },
-              { name: 'students_per_year', value: formData.studentsPerYear },
-              { name: 'message', value: formData.message },
-            ],
-            context: {
-              pageUri: window.location.href,
-              pageName: 'Book a Demo',
-            },
-          }),
+          if (response.ok) {
+            hubspotSubmitted = true;
+          } else {
+            hubspotError = `HubSpot API error: ${response.status}`;
+          }
+        } catch (err) {
+          hubspotError = err instanceof Error ? err.message : 'HubSpot submission failed';
+          console.error('HubSpot submission error:', err);
         }
-      );
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        throw new Error('Form submission failed');
       }
+
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-demo`;
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          phone: cleanPhone,
+          institution: formData.institution,
+          role: formData.role,
+          students_per_year: formData.studentsPerYear,
+          message: formData.message,
+          hubspot_submitted: hubspotSubmitted,
+          hubspot_error: hubspotError,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save submission');
+      }
+
+      setSubmitted(true);
     } catch (err) {
       console.error('Error submitting form:', err);
       setError('There was an error submitting the form. Please try again or contact us directly.');
