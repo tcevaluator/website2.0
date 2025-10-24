@@ -96,10 +96,10 @@ function App() {
                 Reduce evaluation time from 45 minutes to 5 minutes. Join leading institutions transforming their transfer credit process.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="group bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:scale-105">
+                <Link to="/book-demo" className="group bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:scale-105">
                   Start Free Trial
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
                 <button
                   onClick={() => setVideoOpen(true)}
                   className="group text-gray-700 px-8 py-4 rounded-lg hover:bg-gray-50 transition-all font-medium flex items-center justify-center gap-2 border-2 border-gray-200 hover:border-gray-300"
@@ -682,10 +682,10 @@ function App() {
             Be one of the first to experience the future of transfer credit evaluation. Join our beta program and unlock premium features before anyone else.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="group bg-gray-900 text-white px-10 py-4 rounded-lg hover:bg-gray-800 transition-all font-semibold text-lg shadow-xl hover:shadow-2xl flex items-center gap-2 hover:scale-105 duration-300">
-              <a href="/book-demo">Book a Demo</a>
+            <Link to="/book-demo" className="group bg-gray-900 text-white px-10 py-4 rounded-lg hover:bg-gray-800 transition-all font-semibold text-lg shadow-xl hover:shadow-2xl flex items-center gap-2 hover:scale-105 duration-300">
+              Book a Demo
               <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-8 pt-10 text-sm text-gray-600">
             <div className="flex items-center gap-2">
