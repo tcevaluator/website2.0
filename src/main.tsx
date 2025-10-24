@@ -7,6 +7,9 @@ import About from './pages/About.tsx';
 import Pricing from './pages/Pricing.tsx';
 import BookDemo from './pages/BookDemo.tsx';
 import Success from './pages/Success.tsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.tsx';
+import Terms from './pages/Terms.tsx';
+import Security from './pages/Security.tsx';
 import ScrollToTop from './components/ScrollToTop.tsx';
 import './index.css';
 
@@ -21,6 +24,9 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/book-demo" element={<BookDemo />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/security" element={<Security />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
