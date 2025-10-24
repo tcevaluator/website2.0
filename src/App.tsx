@@ -429,7 +429,7 @@ function App() {
                           <CheckCircle2 size={16} className="text-green-600" />
                         </div>
                         <div>
-                          <div className="font-semibold text-gray-900 mb-1">99% Accurate</div>
+                          <div className="font-semibold text-gray-900 mb-1">99%+ Accurate</div>
                           <span className="text-gray-700 leading-relaxed">Rule-driven, uniform decisions with complete audit trail</span>
                         </div>
                       </div>
@@ -504,7 +504,7 @@ function App() {
                     </td>
                     <td className="px-8 py-6 text-gray-500 italic">Higher risk of manual oversight errors</td>
                   </tr>
-                  <tr className="group hover:bg-gradient-to-r hover:from-green-50/50 hover:to-blue-50/30 transition-all duration-300 border-b border-gray-100">
+                  {/* <tr className="group hover:bg-gradient-to-r hover:from-green-50/50 hover:to-blue-50/30 transition-all duration-300 border-b border-gray-100">
                     <td className="px-8 py-6">
                       <div className="font-bold text-gray-900 text-base">Reporting & Analytics</div>
                     </td>
@@ -520,8 +520,8 @@ function App() {
                       </div>
                     </td>
                     <td className="px-8 py-6 text-gray-500 italic">Requires manual tracking and spreadsheets</td>
-                  </tr>
-                  <tr className="group hover:bg-gradient-to-r hover:from-green-50/50 hover:to-blue-50/30 transition-all duration-300 border-b border-gray-100">
+                  </tr> */}
+                  {/* <tr className="group hover:bg-gradient-to-r hover:from-green-50/50 hover:to-blue-50/30 transition-all duration-300 border-b border-gray-100">
                     <td className="px-8 py-6">
                       <div className="font-bold text-gray-900 text-base">Integration</div>
                     </td>
@@ -537,7 +537,7 @@ function App() {
                       </div>
                     </td>
                     <td className="px-8 py-6 text-gray-500 italic">Often involves manual re-keying or CSV imports</td>
-                  </tr>
+                  </tr> */}
                   <tr className="group hover:bg-gradient-to-r hover:from-green-50/50 hover:to-blue-50/30 transition-all duration-300 border-b border-gray-100">
                     <td className="px-8 py-6">
                       <div className="font-bold text-gray-900 text-base">Student Experience</div>
@@ -548,7 +548,7 @@ function App() {
                           <CheckCircle2 size={16} className="text-green-600" />
                         </div>
                         <div>
-                          <div className="font-semibold text-gray-900 mb-1">Instant Results</div>
+                          <div className="font-semibold text-gray-900 mb-1">Fast & Accurate Results</div>
                           <span className="text-gray-700 leading-relaxed">Immediate transfer previews and real-time status updates</span>
                         </div>
                       </div>
