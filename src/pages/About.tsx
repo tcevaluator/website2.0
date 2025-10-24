@@ -8,7 +8,9 @@ function About() {
       <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-lg shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link to="/" className="text-xl font-bold text-gray-900">TCEvaluator</Link>
+            <Link to="/" className="flex-shrink-0">
+              <img src="/logo.svg" alt="TCEvaluator" className="h-8" />
+            </Link>
             <div className="hidden md:flex items-center space-x-8">
               <Link to="/" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Home</Link>
               <Link to="/about" className="text-blue-600 text-sm font-medium">About</Link>

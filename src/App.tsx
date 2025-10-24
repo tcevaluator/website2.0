@@ -31,9 +31,9 @@ function App() {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex-shrink-0">
-              <h1 className="text-xl font-bold text-gray-900">TCEvaluator</h1>
-            </div>
+            <Link to="/" className="flex-shrink-0">
+              <img src="/logo.svg" alt="TCEvaluator" className="h-8" />
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -140,8 +140,8 @@ function App() {
                       <div className="ml-4 text-xs text-gray-500 font-medium">TCEvaluator Dashboard</div>
                     </div>
                     <img
-                      src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                      alt="Dashboard preview"
+                      src="/tcevaluator_dashboard.webp"
+                      alt="TCEvaluator Dashboard"
                       className="w-full"
                     />
                   </div>
