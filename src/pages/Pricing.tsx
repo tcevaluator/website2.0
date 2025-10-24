@@ -479,12 +479,6 @@ function Pricing() {
               Book a Demo
               <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <a
-              href="/book-demo"
-              className="text-white px-10 py-4 rounded-lg hover:bg-white/10 transition-all font-semibold text-lg border-2 border-white"
-            >
-              Contact Sales
-            </a>
           </div>
         </div>
       </section>
