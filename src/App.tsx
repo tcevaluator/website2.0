@@ -67,10 +67,10 @@ function App() {
         )}
 
         {/* Mobile Navigation - Menu Panel */}
-        <div className={`fixed inset-0 z-50 md:hidden transition-transform duration-500 ease-out pointer-events-none ${
-          mobileMenuOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full'
-        }`}>
-          <div className="h-full w-full flex flex-col bg-gray-900">
+        <div className={`fixed top-0 right-0 bottom-0 left-0 z-50 md:hidden transition-transform duration-500 ease-out ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`} style={{ backgroundColor: '#111827' }}>
+          <div className="h-full w-full flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <Link to="/" onClick={() => setMobileMenuOpen(false)}>
