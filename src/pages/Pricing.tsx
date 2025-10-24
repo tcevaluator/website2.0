@@ -131,7 +131,7 @@ function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">3 user accounts included</span>
+                  <span className="text-white">Additional 3 user accounts included</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
@@ -190,7 +190,7 @@ function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">5 user accounts included</span>
+                  <span className="text-gray-700">Additional 5 user accounts included</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
