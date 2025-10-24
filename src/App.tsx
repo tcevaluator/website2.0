@@ -660,8 +660,8 @@ function App() {
                   className="w-16 h-16 rounded-full"
                 />
                 <div>
-                  <div className="font-semibold text-lg">Dr. Sarah Johnson</div>
-                  <div className="text-blue-200">Director of Admissions, State University</div>
+                  <div className="font-semibold text-lg">David S</div>
+                  <div className="text-blue-200">Director of Admissions, Pacific College of Health and Science</div>
                 </div>
               </div>
             </div>
