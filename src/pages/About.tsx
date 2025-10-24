@@ -42,14 +42,7 @@ function About() {
           <p className="text-2xl font-bold text-gray-900 mt-6">
             TC Evaluator changes that.
           </p>
-        </div>
-      </section>
-
-      {/* Intro Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xl text-gray-700 leading-relaxed">
-            We've built an <strong>AI-powered platform</strong> that reads transcripts, interprets course data, applies institutional policies, and delivers accurate transfer credit results in minutes. Designed by higher-education professionals and technology leaders, TC Evaluator brings automation, consistency, and transparency to one of the most time-consuming parts of the admissions and registrar workflow.
+           <p className="text-xl text-gray-600 leading-relaxed">We've built an <strong>AI-powered platform</strong> that reads transcripts, interprets course data, applies institutional policies, and delivers accurate transfer credit results in minutes. Designed by higher-education professionals and technology leaders, TC Evaluator brings automation, consistency, and transparency to one of the most time-consuming parts of the admissions and registrar workflow.
           </p>
         </div>
       </section>
