@@ -109,13 +109,10 @@ function App() {
                 </button>
               </div>
               <div className="flex flex-wrap items-center gap-6 pt-4 text-sm text-gray-600">
+                
                 <div className="flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-green-600" />
-                  <span>No credit card required</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-green-600" />
-                  <span>14-day free trial</span>
+                  <span>Free trial</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-green-600" />
