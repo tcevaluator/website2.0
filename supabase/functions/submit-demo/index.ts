@@ -58,8 +58,9 @@ Deno.serve(async (req: Request) => {
       throw error;
     }
 
+    // Send email asynchronously without blocking the response
     const emailApiUrl = `${Deno.env.get("SUPABASE_URL")}/functions/v1/send-confirmation-email`;
-    const emailResponse = await fetch(emailApiUrl, {
+    fetch(emailApiUrl, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")}`,
@@ -70,11 +71,15 @@ Deno.serve(async (req: Request) => {
         name: `${submission.first_name} ${submission.last_name}`,
         institution: submission.institution,
       }),
+    }).then(async (emailResponse) => {
+      if (emailResponse.ok) {
+        console.log("Email sent successfully to:", submission.email);
+      } else {
+        console.error("Email sending failed:", await emailResponse.text());
+      }
+    }).catch((err) => {
+      console.error("Email sending error:", err);
     });
-
-    if (!emailResponse.ok) {
-      console.error("Email sending failed:", await emailResponse.text());
-    }
 
     return new Response(
       JSON.stringify({ success: true, data }),
