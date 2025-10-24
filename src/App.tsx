@@ -71,7 +71,7 @@ function App() {
           />
 
           {/* Menu Content */}
-          <div className={`relative h-full flex flex-col transition-transform duration-500 ease-out ${
+          <div className={`relative h-full flex flex-col bg-gray-900 transition-transform duration-500 ease-out ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
             {/* Header */}
