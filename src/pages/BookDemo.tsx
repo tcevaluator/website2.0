@@ -101,7 +101,9 @@ function BookDemo() {
 
       const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const emailjsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const emailjsAdminTemplateId = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID;
       const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
 
       if (emailjsServiceId && emailjsTemplateId && emailjsPublicKey) {
         try {
@@ -119,6 +121,31 @@ function BookDemo() {
           console.log('Confirmation email sent successfully');
         } catch (emailError) {
           console.error('Failed to send confirmation email:', emailError);
+        }
+
+        if (emailjsAdminTemplateId && adminEmail) {
+          try {
+            await emailjs.send(
+              emailjsServiceId,
+              emailjsAdminTemplateId,
+              {
+                to_email: adminEmail,
+                first_name: formData.firstName,
+                last_name: formData.lastName,
+                user_email: formData.email,
+                phone: formData.phone,
+                institution: formData.institution,
+                role: formData.role,
+                students_per_year: formData.studentsPerYear,
+                message: formData.message,
+                reply_to: formData.email,
+              },
+              emailjsPublicKey
+            );
+            console.log('Admin notification sent successfully');
+          } catch (emailError) {
+            console.error('Failed to send admin notification:', emailError);
+          }
         }
       }
 
