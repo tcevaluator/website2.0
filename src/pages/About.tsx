@@ -229,12 +229,6 @@ function About() {
               Request a Demo
               <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <a
-              href="/book-demo"
-              className="text-gray-700 px-10 py-4 rounded-lg hover:bg-gray-50 transition-all font-semibold text-lg border-2 border-gray-200 hover:border-gray-300"
-            >
-              Contact Sales
-            </a>
           </div>
         </div>
       </section>
