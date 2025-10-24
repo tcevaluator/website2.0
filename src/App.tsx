@@ -549,7 +549,7 @@ function App() {
                         </div>
                         <div>
                           <div className="font-semibold text-gray-900 mb-1">Fast & Accurate Results</div>
-                          <span className="text-gray-700 leading-relaxed">Immediate transfer previews and real-time status updates</span>
+                          <span className="text-gray-700 leading-relaxed">Fast, dependable results that students can trust</span>
                         </div>
                       </div>
                     </td>
