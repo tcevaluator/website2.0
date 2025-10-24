@@ -683,11 +683,8 @@ function App() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="group bg-gray-900 text-white px-10 py-4 rounded-lg hover:bg-gray-800 transition-all font-semibold text-lg shadow-xl hover:shadow-2xl flex items-center gap-2 hover:scale-105 duration-300">
-              Get Early Access
+              <a href="/book-demo">Book a Demo</a>
               <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="text-gray-700 px-10 py-4 rounded-lg hover:bg-white transition-all font-semibold text-lg border-2 border-transparent hover:border-gray-300">
-              Contact Sales
             </button>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-8 pt-10 text-sm text-gray-600">
