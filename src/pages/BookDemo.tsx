@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, CheckCircle2, Mail, Phone, Building2, User, MessageSquare } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
+import emailjs from '@emailjs/browser';
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -79,14 +80,9 @@ function BookDemo() {
         }
       }
 
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-demo`;
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      const { error: dbError } = await supabase
+        .from('demo_submissions')
+        .insert({
           first_name: formData.firstName,
           last_name: formData.lastName,
           email: formData.email,
@@ -97,11 +93,33 @@ function BookDemo() {
           message: formData.message,
           hubspot_submitted: hubspotSubmitted,
           hubspot_error: hubspotError,
-        }),
-      });
+        });
 
-      if (!response.ok) {
+      if (dbError) {
         throw new Error('Failed to save submission');
+      }
+
+      const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const emailjsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (emailjsServiceId && emailjsTemplateId && emailjsPublicKey) {
+        try {
+          await emailjs.send(
+            emailjsServiceId,
+            emailjsTemplateId,
+            {
+              to_email: formData.email,
+              to_name: `${formData.firstName} ${formData.lastName}`,
+              institution: formData.institution,
+              reply_to: 'sales@tcevaluator.com',
+            },
+            emailjsPublicKey
+          );
+          console.log('Confirmation email sent successfully');
+        } catch (emailError) {
+          console.error('Failed to send confirmation email:', emailError);
+        }
       }
 
       setSubmitted(true);
