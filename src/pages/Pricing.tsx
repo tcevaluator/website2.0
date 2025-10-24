@@ -58,9 +58,21 @@ function Pricing() {
                   <span className="text-5xl font-bold text-gray-900">$500</span>
                   <span className="text-gray-600">/month</span>
                 </div>
-                <p className="text-sm text-gray-500 mt-2">Up to 500 evaluations/month</p>
+                <p className="text-sm text-gray-500 mt-2">25 evaluations/month</p>
+                <div className="mt-3 pt-3 border-t border-gray-200">
+                  <p className="text-sm text-gray-600">+ $4,000 implementation fee (one-time)</p>
+                  <p className="text-xs text-gray-500 mt-1">$20 effective cost per evaluation</p>
+                </div>
               </div>
               <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
+                  <span className="text-gray-700">2 user accounts included</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
+                  <span className="text-gray-700">7 programs supported</span>
+                </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
                   <span className="text-gray-700">AI-powered transcript evaluation</span>
@@ -76,10 +88,6 @@ function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
                   <span className="text-gray-700">Standard reporting dashboard</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">5 user accounts</span>
                 </li>
               </ul>
               <StripeCheckout
@@ -101,15 +109,27 @@ function Pricing() {
               </div>
               <div className="mb-8">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-white">$6,500</span>
+                  <span className="text-5xl font-bold text-white">$1,000</span>
                   <span className="text-blue-100">/month</span>
                 </div>
-                <p className="text-sm text-blue-200 mt-2">Up to 2,500 evaluations/month</p>
+                <p className="text-sm text-blue-200 mt-2">60 evaluations/month</p>
+                <div className="mt-3 pt-3 border-t border-blue-400/30">
+                  <p className="text-sm text-blue-100">+ $6,500 implementation fee (one-time)</p>
+                  <p className="text-xs text-blue-200 mt-1">$17.50 effective cost per evaluation</p>
+                </div>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
                   <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
                   <span className="text-white font-medium">Everything in Starter, plus:</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
+                  <span className="text-white">3 user accounts included</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
+                  <span className="text-white">15 programs supported</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
@@ -126,10 +146,6 @@ function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
                   <span className="text-white">Custom articulation rules</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">Unlimited user accounts</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
@@ -152,14 +168,27 @@ function Pricing() {
               </div>
               <div className="mb-8">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-gray-900">Custom</span>
+                  <span className="text-5xl font-bold text-gray-900">$2,000</span>
+                  <span className="text-gray-600">/month</span>
                 </div>
-                <p className="text-sm text-gray-500 mt-2">Unlimited evaluations</p>
+                <p className="text-sm text-gray-500 mt-2">135 evaluations/month</p>
+                <div className="mt-3 pt-3 border-t border-gray-200">
+                  <p className="text-sm text-gray-600">+ $10,000 implementation fee (one-time)</p>
+                  <p className="text-xs text-gray-500 mt-1">$15 effective cost per evaluation</p>
+                </div>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
                   <span className="text-gray-700 font-medium">Everything in Professional, plus:</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
+                  <span className="text-gray-700">5 user accounts included</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
+                  <span className="text-gray-700">30 programs supported</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
@@ -205,23 +234,43 @@ function Pricing() {
             <p className="text-xl text-gray-600">Enhance your plan with additional features</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <Zap className="text-blue-600 mb-3" size={24} />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Additional Evaluations</h3>
-              <p className="text-gray-600 mb-3">$3 per evaluation beyond plan limit</p>
+              <Users className="text-blue-600 mb-3" size={24} />
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Extra Users</h3>
+              <p className="text-gray-600 mb-3">$100 per user/month</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
               <Building2 className="text-blue-600 mb-3" size={24} />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Custom Integration</h3>
-              <p className="text-gray-600 mb-3">One-time fee starting at $5,000</p>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Extra Programs</h3>
+              <p className="text-gray-600 mb-3">$200 per block of 5 programs</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <Users className="text-blue-600 mb-3" size={24} />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Training Sessions</h3>
-              <p className="text-gray-600 mb-3">$500 per session for additional training</p>
+              <Zap className="text-blue-600 mb-3" size={24} />
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Overage Evaluations</h3>
+              <p className="text-gray-600 mb-3">$18 per evaluation beyond plan limit</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
+              <Sparkles className="text-blue-600 mb-3" size={24} />
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Annual Prepay</h3>
+              <p className="text-gray-600 mb-3">10-15% discount on annual commitment</p>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-6 text-white">
+              <h3 className="text-2xl font-bold mb-2">Custom Enterprise Plans</h3>
+              <p className="text-blue-100 mb-4">For institutions needing 500+ evaluations or 50+ programs per month</p>
+              <a
+                href="/book-demo"
+                className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-semibold"
+              >
+                Contact Sales
+                <ArrowRight size={20} />
+              </a>
             </div>
           </div>
         </div>
