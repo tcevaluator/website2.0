@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, CheckCircle2, Mail, Phone, Building2, User, MessageSquare } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import emailjs from '@emailjs/browser';
+import SEO from '../components/SEO';
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -187,6 +188,11 @@ function BookDemo() {
   if (submitted) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4">
+        <SEO
+          title="Demo Request Submitted | TCEvaluator"
+          description="Thank you for requesting a demo of TCEvaluator. Our team will contact you soon to schedule your personalized demonstration."
+          canonical="https://tcevaluator.com/book-demo"
+        />
         <div className="max-w-2xl w-full bg-white rounded-3xl shadow-2xl p-12 text-center">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="text-green-600" size={40} />
@@ -225,6 +231,11 @@ function BookDemo() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Book a Demo | TCEvaluator"
+        description="Schedule a personalized demo of TCEvaluator and see how AI can transform your transfer credit evaluation process. Book your demo today."
+        canonical="https://tcevaluator.com/book-demo"
+      />
       {/* Navigation */}
       <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-lg shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

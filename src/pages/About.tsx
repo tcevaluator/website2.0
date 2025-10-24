@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Target, Zap, Brain, Shield, TrendingUp, Globe, Users, Award } from 'lucide-react';
+import SEO from '../components/SEO';
 
 function About() {
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="About TCEvaluator | AI-Powered Transfer Credit Solutions"
+        description="Learn how TCEvaluator revolutionizes transfer credit evaluation with AI technology, helping colleges and universities scale their operations efficiently."
+        canonical="https://tcevaluator.com/about"
+      />
       {/* Navigation */}
       <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-lg shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 function Success() {
   const [searchParams] = useSearchParams();
@@ -26,6 +27,11 @@ function Success() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white flex items-center justify-center px-4">
+      <SEO
+        title="Subscription Successful | TCEvaluator"
+        description="Thank you for subscribing to TCEvaluator. Your account is being set up and you'll receive further instructions via email."
+        canonical="https://tcevaluator.com/success"
+      />
       <div className="max-w-2xl w-full bg-white rounded-3xl shadow-2xl p-12 text-center">
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 className="text-green-600" size={40} />

@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Check, ArrowRight, Zap, Building2, Sparkles, Users } from 'lucide-react';
 import StripeCheckout from '../components/StripeCheckout';
+import SEO from '../components/SEO';
 
 function Pricing() {
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Pricing Plans | TCEvaluator"
+        description="Choose the perfect TCEvaluator plan for your institution. Flexible pricing for colleges and universities of all sizes. Start automating transfer credit evaluations today."
+        canonical="https://tcevaluator.com/pricing"
+      />
       {/* Navigation */}
       <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-lg shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
