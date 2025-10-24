@@ -12,6 +12,94 @@ interface EmailRequest {
   institution: string;
 }
 
+async function sendEmailViaSMTP(to: string, subject: string, htmlBody: string, textBody: string) {
+  const smtpHost = "smtp.office365.com";
+  const smtpPort = 587;
+  const smtpUser = Deno.env.get("SMTP_USER") || "";
+  const smtpPass = Deno.env.get("SMTP_PASS") || "";
+
+  const conn = await Deno.connect({
+    hostname: smtpHost,
+    port: smtpPort,
+  });
+
+  const encoder = new TextEncoder();
+  const decoder = new TextDecoder();
+
+  async function readResponse(): Promise<string> {
+    const buffer = new Uint8Array(4096);
+    const n = await conn.read(buffer);
+    if (n === null) return "";
+    return decoder.decode(buffer.subarray(0, n));
+  }
+
+  async function sendCommand(command: string): Promise<string> {
+    await conn.write(encoder.encode(command + "\r\n"));
+    return await readResponse();
+  }
+
+  try {
+    await readResponse();
+    await sendCommand("EHLO tcevaluator.com");
+    await sendCommand("STARTTLS");
+
+    const tlsConn = await Deno.startTls(conn, { hostname: smtpHost });
+
+    const tlsEncoder = new TextEncoder();
+    const tlsDecoder = new TextDecoder();
+
+    async function tlsReadResponse(): Promise<string> {
+      const buffer = new Uint8Array(4096);
+      const n = await tlsConn.read(buffer);
+      if (n === null) return "";
+      return tlsDecoder.decode(buffer.subarray(0, n));
+    }
+
+    async function tlsSendCommand(command: string): Promise<string> {
+      await tlsConn.write(tlsEncoder.encode(command + "\r\n"));
+      return await tlsReadResponse();
+    }
+
+    await tlsSendCommand("EHLO tcevaluator.com");
+    await tlsSendCommand("AUTH LOGIN");
+    await tlsSendCommand(btoa(smtpUser));
+    await tlsSendCommand(btoa(smtpPass));
+    await tlsSendCommand(`MAIL FROM:<${smtpUser}>`);
+    await tlsSendCommand(`RCPT TO:<${to}>`);
+    await tlsSendCommand("DATA");
+
+    const emailContent = [
+      `From: TC Evaluator <${smtpUser}>`,
+      `To: ${to}`,
+      `Subject: ${subject}`,
+      "MIME-Version: 1.0",
+      'Content-Type: multipart/alternative; boundary="boundary123"',
+      "",
+      "--boundary123",
+      "Content-Type: text/plain; charset=utf-8",
+      "",
+      textBody,
+      "",
+      "--boundary123",
+      "Content-Type: text/html; charset=utf-8",
+      "",
+      htmlBody,
+      "",
+      "--boundary123--",
+      "",
+      ".",
+    ].join("\r\n");
+
+    await tlsSendCommand(emailContent);
+    await tlsSendCommand("QUIT");
+
+    tlsConn.close();
+  } catch (error) {
+    conn.close();
+    throw error;
+  }
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, {
@@ -138,27 +226,44 @@ The TC Evaluator Team
     `;
 
     console.log(`Sending confirmation email to: ${to}`);
-    console.log('Note: Email service not configured. Email would be sent in production.');
 
-    return new Response(
-      JSON.stringify({ 
-        success: true, 
-        message: 'Email queued for sending',
-        preview: {
-          to,
-          subject: 'Thank You for Requesting a Demo - TC Evaluator',
-          html: emailHtml,
-          text: emailText
+    const subject = "Thank You for Requesting a Demo - TC Evaluator";
+
+    try {
+      await sendEmailViaSMTP(to, subject, emailHtml, emailText);
+      console.log(`Email sent successfully to: ${to}`);
+
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: 'Email sent successfully'
+        }),
+        {
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+          },
+          status: 200,
         }
-      }),
-      {
-        headers: {
-          ...corsHeaders,
-          "Content-Type": "application/json",
-        },
-        status: 200,
-      }
-    );
+      );
+    } catch (emailError) {
+      console.error("Failed to send email:", emailError);
+
+      return new Response(
+        JSON.stringify({
+          success: false,
+          message: 'Failed to send email',
+          error: emailError.message
+        }),
+        {
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+          },
+          status: 500,
+        }
+      );
+    }
   } catch (error) {
     console.error("Error:", error);
     return new Response(
