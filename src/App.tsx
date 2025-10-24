@@ -76,7 +76,9 @@ function App() {
           }`}>
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-white/10">
-              <img src="/logo.svg" alt="TCEvaluator" className="h-8 brightness-0 invert" />
+              <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+                <img src="/logo.svg" alt="TCEvaluator" className="h-8 brightness-0 invert" />
+              </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2 rounded-lg hover:bg-white/10 transition-colors"
