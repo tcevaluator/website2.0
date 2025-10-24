@@ -59,7 +59,7 @@ function App() {
         </div>
 
         {/* Mobile Navigation - Full Screen Overlay */}
-        <div className={`fixed inset-0 md:hidden transition-all duration-500 ${
+        <div className={`fixed inset-0 z-50 md:hidden transition-all duration-500 ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}>
           {/* Backdrop with blur */}
@@ -71,7 +71,7 @@ function App() {
           />
 
           {/* Menu Content */}
-          <div className={`relative h-full w-full flex flex-col bg-gray-900 transition-transform duration-500 ease-out ${
+          <div className={`absolute inset-0 h-full w-full flex flex-col bg-gray-900 z-10 transition-transform duration-500 ease-out ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
             {/* Header */}
