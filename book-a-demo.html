@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book a Demo — TCEvaluator</title>
+    <link rel="preload" href="img/book-a-demo.webp" as="image">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/book-a-demo.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.emailjs && emailjs.init) {
+                emailjs.init("ALJqCY7vba3y69W1W"); // mismo public key que el proyecto base
+            }
+        });
+    </script>
+</head>
+<body>
+<div id="main-nav"></div>
+<nav class="nav">
+    <div class="nav-container">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="img/logo.svg" width="300" id="logo" alt="Transfer Credits Evaluator Logo">
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="desktop-menu">
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Pricing</a>
+                <button class="secondary-button">Book a Demo</button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-button">
+                <button class="menu-toggle" aria-label="Open main menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu">
+            <div class="mobile-menu-items">
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Pricing</a>
+                <button class="secondary-button">Book a Demo</button>
+            </div>
+        </div>
+    </div>
+</nav>
+<main class="demo-page" id="main">
+    <section class="demo-wrap" aria-labelledby="demo-title">
+        <!-- Columna visual -->
+        <aside class="demo-visual" role="img" aria-label="Students at campus">
+            <div class="visual-card" data-animate="riseFade">
+                <img src="img/book-a-demo.webp" alt="Group of students smiling" width="640" height="640" loading="eager">
+                <header class="visual-head">
+                    <h1 id="demo-title">Demo Booking <span>Form</span></h1>
+                    <p>Fill out the form below to secure your demo.</p>
+                </header>
+            </div>
+        </aside>
+
+        <!-- Columna formulario -->
+        <section class="demo-form" aria-label="Request demo form">
+            <form id="bookDemoForm" novalidate aria-describedby="formMessage">
+                <div class="grid two" data-animate="riseFade"   >
+                    <div class="form-field">
+                        <label for="first_name">First Name</label>
+                        <input id="first_name" name="first_name" type="text" autocomplete="given-name" placeholder="Enter your first name" required>
+                        <p class="hint" id="hint-first_name"></p>
+                    </div>
+                    <div class="form-field">
+                        <label for="last_name">Last Name</label>
+                        <input id="last_name" name="last_name" type="text" autocomplete="family-name" placeholder="Enter your last name" required>
+                        <p class="hint" id="hint-last_name"></p>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Enter your email" required>
+                    <p class="hint" id="hint-email"></p>
+                </div>
+
+                <div class="form-field">
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(___) ___-____" aria-describedby="phone-help">
+                    <p class="subtle" id="phone-help">Please include area code</p>
+                </div>
+
+                <div class="form-field">
+                    <label for="institution_name">Institution Name</label>
+                    <input id="institution_name" name="institution_name" type="text" placeholder="Enter your institution's name" required>
+                    <p class="hint" id="hint-institution_name"></p>
+                </div>
+
+                <div class="form-field population-field">
+                    <label for="student_population">Student Population</label>
+
+                    <div class="range-wrap">
+                        <input
+                                type="range"
+                                id="student_population"
+                                name="student_population"
+                                min="0"
+                                max="6000"
+                                step="100"
+                                value="500"
+                                aria-describedby="pop-help"
+                        >
+
+                        <div class="range-output">
+                            <span id="pop-value">500</span> students —
+                            <strong id="plan-label">Free</strong>
+                        </div>
+                    </div>
+
+                    <p class="subtle" id="pop-help">
+                        Adjust to estimate your student body size and view the suggested plan.
+                    </p>
+                </div>
+
+
+                <div class="actions">
+                    <button id="submitBtn" class="btn-primary" type="submit" aria-live="polite">
+                        <span class="btn-label">Submit Request</span>
+                        <span class="btn-icon" aria-hidden="true">→</span>
+                    </button>
+                    <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+                </div>
+            </form>
+        </section>
+
+    </section>
+
+    <footer>
+        <p>© 2025 TCEvaluator. All rights reserved. Patent Pending.</p>
+    </footer>
+</main>
+
+<script src="js/book-a-demo.js" defer></script>
+</body>
+</html>

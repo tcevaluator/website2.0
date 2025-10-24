@@ -1,0 +1,12 @@
+@font-face{
+    font-family: "adineuePRO-BlackWeb";
+    src: url("../font/adineuePRO-BlackWeb.eot");
+    src: url("../font/adineuePRO-BlackWeb.eot?#iefix")format("embedded-opentype"),
+    url("../font/adineuePRO-BlackWeb.woff")format("woff"),
+    url("../font/adineuePRO-BlackWeb.woff2")format("woff2"),
+    url("../font/adineuePRO-BlackWeb.ttf")format("truetype"),
+    url("../font/adineuePRO-BlackWeb.svg#adineuePRO-BlackWeb")format("svg");
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+}

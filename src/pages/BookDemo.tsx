@@ -1,0 +1,492 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Calendar, CheckCircle2, Mail, Phone, Building2, User, MessageSquare } from 'lucide-react';
+
+function BookDemo() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    institution: '',
+    role: '',
+    studentsPerYear: '',
+    message: ''
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      const hubspotPortalId = import.meta.env.VITE_HUBSPOT_PORTAL_ID;
+      const hubspotFormId = import.meta.env.VITE_HUBSPOT_FORM_ID;
+
+      if (!hubspotPortalId || !hubspotFormId) {
+        console.warn('HubSpot credentials not configured, simulating success');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setSubmitted(true);
+        return;
+      }
+
+      const cleanPhone = formData.phone.replace(/\D/g, '');
+
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${hubspotPortalId}/${hubspotFormId}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fields: [
+              { name: 'firstname', value: formData.firstName },
+              { name: 'lastname', value: formData.lastName },
+              { name: 'email', value: formData.email },
+              { name: 'phone', value: cleanPhone },
+              { name: 'company', value: formData.institution },
+              { name: 'jobtitle', value: formData.role },
+              { name: 'students_per_year', value: formData.studentsPerYear },
+              { name: 'message', value: formData.message },
+            ],
+            context: {
+              pageUri: window.location.href,
+              pageName: 'Book a Demo',
+            },
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError('There was an error submitting the form. Please try again or contact us directly.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatPhoneNumber = (value: string) => {
+    const phoneNumber = value.replace(/\D/g, '');
+
+    if (phoneNumber.length === 0) return '';
+    if (phoneNumber.length <= 3) return `(${phoneNumber}`;
+    if (phoneNumber.length <= 6) return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+
+    if (name === 'phone') {
+      const formatted = formatPhoneNumber(value);
+      setFormData({
+        ...formData,
+        [name]: formatted
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4">
+        <div className="max-w-2xl w-full bg-white rounded-3xl shadow-2xl p-12 text-center">
+          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 className="text-green-600" size={40} />
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Thank You!</h1>
+          <p className="text-xl text-gray-600 mb-8">
+            We've received your demo request. Our team will reach out within 24 hours to schedule your personalized demonstration.
+          </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+            <h3 className="font-semibold text-gray-900 mb-2">What happens next?</h3>
+            <ul className="text-left space-y-2 text-gray-700">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={18} />
+                <span>Our team reviews your information</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={18} />
+                <span>We'll contact you to schedule a convenient time</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={18} />
+                <span>Experience a live demo tailored to your needs</span>
+              </li>
+            </ul>
+          </div>
+          <Link
+            to="/"
+            className="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-all font-semibold"
+          >
+            Return to Home
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-lg shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <Link to="/" className="text-xl font-bold text-gray-900">TCEvaluator</Link>
+            <div className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Home</Link>
+              <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">About</Link>
+              <Link to="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Pricing</Link>
+              <Link to="/book-demo" className="text-blue-600 text-sm font-medium">Book a Demo</Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 border border-blue-200 rounded-full mb-6">
+            <Calendar size={16} className="text-blue-600" />
+            <span className="text-sm font-semibold text-blue-900">Schedule Your Demo</span>
+          </div>
+          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            See TC Evaluator{' '}
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              in action
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Experience firsthand how TC Evaluator can transform your transfer credit evaluation process. Our team will walk you through a personalized demonstration.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Form */}
+            <div className="bg-white rounded-2xl border-2 border-gray-200 p-8 lg:p-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Request a Demo</h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
+                      First Name *
+                    </label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        required
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
+                        placeholder="John"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Last Name *
+                    </label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        required
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
+                        placeholder="Doe"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Work Email *
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
+                      placeholder="john.doe@university.edu"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Phone Number
+                  </label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      maxLength={14}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
+                      placeholder="(555) 123-4567"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="institution" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Institution Name *
+                  </label>
+                  <div className="relative">
+                    <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                    <input
+                      type="text"
+                      id="institution"
+                      name="institution"
+                      required
+                      value={formData.institution}
+                      onChange={handleChange}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
+                      placeholder="University Name"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="role" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Your Role *
+                  </label>
+                  <select
+                    id="role"
+                    name="role"
+                    required
+                    value={formData.role}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
+                  >
+                    <option value="">Select your role</option>
+                    <option value="registrar">Registrar</option>
+                    <option value="admissions">Admissions Director</option>
+                    <option value="it">IT Administrator</option>
+                    <option value="dean">Dean/Department Head</option>
+                    <option value="evaluator">Credit Evaluator</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="studentsPerYear" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Transfer Students Per Year *
+                  </label>
+                  <select
+                    id="studentsPerYear"
+                    name="studentsPerYear"
+                    required
+                    value={formData.studentsPerYear}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
+                  >
+                    <option value="">Select range</option>
+                    <option value="0-100">0-100</option>
+                    <option value="101-500">101-500</option>
+                    <option value="501-1000">501-1,000</option>
+                    <option value="1001-2500">1,001-2,500</option>
+                    <option value="2500+">2,500+</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Tell us about your needs
+                  </label>
+                  <div className="relative">
+                    <MessageSquare className="absolute left-3 top-3 text-gray-400" size={18} />
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition resize-none"
+                      placeholder="Tell us about your current evaluation process and what challenges you're facing..."
+                    />
+                  </div>
+                </div>
+
+                {error && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-600 text-sm">{error}</p>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                >
+                  {loading ? 'Submitting...' : 'Request Demo'}
+                </button>
+
+                <p className="text-sm text-gray-500 text-center">
+                  By submitting this form, you agree to our Privacy Policy and Terms of Service.
+                </p>
+              </form>
+            </div>
+
+            {/* Benefits */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">What to expect from your demo</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
+                    <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={24} />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Live Transcript Processing</h4>
+                      <p className="text-gray-600">Watch TC Evaluator analyze and evaluate sample transcripts in real-time</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
+                    <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={24} />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Customized Walkthrough</h4>
+                      <p className="text-gray-600">See how TC Evaluator fits your institution's specific workflow</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
+                    <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={24} />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Integration Overview</h4>
+                      <p className="text-gray-600">Learn about connecting with your existing SIS and systems</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
+                    <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={24} />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Q&A Session</h4>
+                      <p className="text-gray-600">Get answers to all your questions from our product experts</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-white">
+                <h3 className="text-2xl font-bold mb-4">Join leading institutions</h3>
+                <p className="text-blue-100 mb-6">
+                  See why universities and colleges trust TC Evaluator to handle their transfer credit evaluations.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <div className="text-3xl font-bold mb-1">90%</div>
+                    <div className="text-sm text-blue-100">Time reduction</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold mb-1">99%</div>
+                    <div className="text-sm text-blue-100">Accuracy rate</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold mb-1">24/7</div>
+                    <div className="text-sm text-blue-100">Processing</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold mb-1">100+</div>
+                    <div className="text-sm text-blue-100">Institutions</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-2xl p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Prefer to talk first?</h3>
+                <p className="text-gray-600 mb-6">
+                  Our team is ready to answer your questions and help you get started.
+                </p>
+                <div className="space-y-3">
+                  <a href="mailto:sales@tcevaluator.com" className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors">
+                    <Mail size={20} />
+                    <span className="font-medium">sales@tcevaluator.com</span>
+                  </a>
+                  <a href="tel:+15551234567" className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors">
+                    <Phone size={20} />
+                    <span className="font-medium">+1 (555) 123-4567</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-16 mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div>
+              <h3 className="text-white font-bold text-lg mb-4">TCEvaluator</h3>
+              <p className="text-sm leading-relaxed">
+                AI-powered transfer credit evaluation for modern institutions.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Product</h4>
+              <ul className="space-y-3 text-sm">
+                <li><a href="/" className="hover:text-white transition-colors">Features</a></li>
+                <li><a href="/pricing" className="hover:text-white transition-colors">Pricing</a></li>
+                <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Company</h4>
+              <ul className="space-y-3 text-sm">
+                <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
+                <li><a href="/book-demo" className="hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Legal</h4>
+              <ul className="space-y-3 text-sm">
+                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-gray-800 text-center text-sm">
+            <p>&copy; 2025 TCEvaluator. All rights reserved. Patent Pending.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export default BookDemo;
