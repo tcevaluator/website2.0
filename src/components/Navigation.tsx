@@ -71,17 +71,18 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
         {/* Mobile Navigation - Backdrop */}
         {mobileMenuOpen && (
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden animate-fade-in"
+            className="fixed inset-0 md:hidden animate-fade-in"
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', backdropFilter: 'blur(4px)', zIndex: 999 }}
             onClick={() => setMobileMenuOpen(false)}
           />
         )}
 
         {/* Mobile Navigation - Menu Panel */}
         <div
-          className={`fixed top-0 right-0 bottom-0 left-0 z-50 md:hidden transition-transform duration-500 ease-out ${
+          className={`fixed top-0 right-0 bottom-0 left-0 md:hidden transition-transform duration-500 ease-out ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
-          style={{ backgroundColor: '#111827' }}
+          style={{ backgroundColor: '#111827', zIndex: 1000 }}
         >
           <div className="h-full w-full flex flex-col">
             {/* Header */}
