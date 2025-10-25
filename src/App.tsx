@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ArrowRight, CheckCircle2, Zap, TrendingUp, Brain, Clock, Users, BarChart3, Sparkles, ChevronRight, Shield, FileText, Award, Play, XCircle, Building2, GraduationCap } from 'lucide-react';
 import SEO from './components/SEO';
+import Particles from './components/Particles';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -188,9 +189,12 @@ function App() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Particles Background */}
+        <Particles className="absolute inset-0 z-0" />
+
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-white"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-white z-0"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent z-0"></div>
 
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
