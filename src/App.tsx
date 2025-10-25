@@ -291,7 +291,7 @@ function App() {
       )}
 
       {/* Social Proof */}
-      <section className="py-16 border-y border-gray-200 bg-white">
+      <section className="py-16 border-y border-gray-200 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-sm font-medium text-gray-500 mb-8 animate-fade-in">TRUSTED BY LEADING INSTITUTIONS</p>
           <div className="flex flex-wrap items-center justify-center gap-16 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
@@ -310,7 +310,7 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-32">
+      <section id="features" className="py-32 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">Built for scale.<br/>Designed for speed.</h2>
