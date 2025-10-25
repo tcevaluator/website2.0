@@ -82,11 +82,16 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
           className={`fixed top-0 right-0 bottom-0 left-0 md:hidden transition-transform duration-500 ease-out ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
-          style={{ backgroundColor: '#111827', zIndex: 1000 }}
+          style={{
+            backgroundColor: '#111827',
+            zIndex: 1000,
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden'
+          }}
         >
-          <div className="h-full w-full flex flex-col">
+          <div className="h-full w-full flex flex-col" style={{ backgroundColor: '#111827' }}>
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
+            <div className="flex items-center justify-between p-6 border-b border-white/10" style={{ backgroundColor: '#111827' }}>
               <Link to="/" onClick={() => setMobileMenuOpen(false)}>
                 <img src="/logo.svg" alt="TCEvaluator" className="h-8 brightness-0 invert" />
               </Link>
@@ -99,7 +104,7 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
             </div>
 
             {/* Navigation Links */}
-            <div className="flex-1 overflow-y-auto px-6 py-12">
+            <div className="flex-1 overflow-y-auto px-6 py-12" style={{ backgroundColor: '#111827' }}>
               <div className="space-y-2">
                 <Link
                   to="/"
@@ -170,7 +175,7 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
             </div>
 
             {/* CTA Button */}
-            <div className="p-6 border-t border-white/10">
+            <div className="p-6 border-t border-white/10" style={{ backgroundColor: '#111827' }}>
               <Link
                 to="/book-demo"
                 onClick={() => setMobileMenuOpen(false)}
