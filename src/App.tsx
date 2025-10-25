@@ -622,7 +622,7 @@ function App() {
       </section>
 
       {/* Stats/Impact Section */}
-      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-gray-900 to-blue-900 text-white overflow-hidden">
+      <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-900 to-blue-900 text-white overflow-hidden">
         {/* Particles Background */}
         <Particles className="absolute inset-0 z-0" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -685,7 +685,7 @@ function App() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-32 bg-gray-50">
+      <section id="how-it-works" className="py-32 bg-gray-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold text-gray-900 mb-6">Simple. Powerful. Automated.</h2>
