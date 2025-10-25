@@ -199,9 +199,9 @@ function Terms() {
               If you have questions about these Terms of Service, please contact us at:
             </p>
             <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-              <p className="text-gray-700 mb-2"><strong>Email:</strong> legal@tcevaluator.com</p>
+              <p className="text-gray-700 mb-2"><strong>Email:</strong> info@tcevaluator.com</p>
               <p className="text-gray-700 mb-2"><strong>Website:</strong> www.tcevaluator.com</p>
-              <p className="text-gray-700"><strong>Address:</strong> TCEvaluator Team</p>
+              
             </div>
           </section>
         </div>
