@@ -254,7 +254,7 @@ function Security() {
                 If you discover a security vulnerability or have concerns about the security of our platform, please contact our security team immediately:
               </p>
               <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                <p className="text-gray-700 mb-2"><strong>Security Email:</strong> security@tcevaluator.com</p>
+                <p className="text-gray-700 mb-2"><strong>Security Email:</strong> info@tcevaluator.com</p>
                 <p className="text-gray-700 mb-4"><strong>Response Time:</strong> We aim to respond to security reports within 24 hours</p>
                 <p className="text-gray-600 text-sm">
                   We appreciate responsible disclosure and will work with security researchers to address any vulnerabilities promptly.
@@ -263,20 +263,7 @@ function Security() {
             </div>
           </section>
 
-          <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Questions About Security?</h2>
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-200">
-              <p className="text-gray-700 leading-relaxed mb-6">
-                We're committed to transparency about our security practices. If you have questions or would like more detailed information about our security measures, we're here to help.
-              </p>
-              <Link
-                to="/book-demo"
-                className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors font-semibold"
-              >
-                Contact Our Security Team
-              </Link>
-            </div>
-          </section>
+         
         </div>
       </div>
 
