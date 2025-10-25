@@ -478,13 +478,13 @@ function BookDemo() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
+                  {/* <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
                     <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={24} />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Integration Overview</h4>
                       <p className="text-gray-600">Learn about connecting with your existing SIS and systems</p>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
                     <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={24} />
@@ -507,7 +507,7 @@ function BookDemo() {
                     <div className="text-sm text-blue-100">Time reduction</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold mb-1">99%</div>
+                    <div className="text-3xl font-bold mb-1">99% +</div>
                     <div className="text-sm text-blue-100">Accuracy rate</div>
                   </div>
                   <div>
