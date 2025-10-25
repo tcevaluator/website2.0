@@ -31,7 +31,7 @@ function App() {
       <SEO />
       <PromoBanner />
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      <nav className={`fixed w-full top-12 z-50 transition-all duration-300 ${
         scrolled || mobileMenuOpen ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -190,7 +190,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-44 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Particles Background */}
         <Particles className="absolute inset-0 z-0" />
 
