@@ -80,10 +80,10 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
         {/* Mobile Navigation - Menu Panel */}
         {mobileMenuOpen && (
           <div
-            className="fixed top-0 right-0 bottom-0 left-0 md:hidden bg-gray-900"
-            style={{ zIndex: 50 }}
+            className="fixed top-0 right-0 bottom-0 left-0 md:hidden"
+            style={{ zIndex: 50, backgroundColor: '#111827' }}
           >
-            <div className="h-full w-full flex flex-col">
+            <div className="h-full w-full flex flex-col" style={{ backgroundColor: '#111827' }}>
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-white/10">
                 <Link to="/" onClick={() => setMobileMenuOpen(false)}>
