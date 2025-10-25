@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X, ArrowRight, CheckCircle2, Zap, TrendingUp, Brain, Clock, Users, BarChart3, Sparkles, ChevronRight, Shield, FileText, Award, Play, XCircle, Building2, GraduationCap } from 'lucide-react';
 import SEO from './components/SEO';
 import Particles from './components/Particles';
+import PromoBanner from './components/PromoBanner';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <SEO />
+      <PromoBanner />
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled || mobileMenuOpen ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
