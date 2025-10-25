@@ -728,69 +728,6 @@ function App() {
         </div>
       </section>
 
-      {/* Testimonial/Case Study Section */}
-      <section className="py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-12 lg:p-16 text-white hover:shadow-2xl transition-shadow">
-            <div className="max-w-4xl">
-              <div className="flex items-center gap-2 mb-6">
-                <Shield size={24} />
-                <span className="text-sm font-semibold uppercase tracking-wider">Case Study</span>
-              </div>
-              <blockquote className="text-3xl lg:text-4xl font-bold mb-8 leading-tight">
-                "TCEvaluator reduced our evaluation time by 90% and improved accuracy. We can now process thousands of applications without adding staff."
-              </blockquote>
-              <div className="flex items-center gap-4">
-                <img
-                  src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=150"
-                  alt="Testimonial"
-                  className="w-16 h-16 rounded-full"
-                />
-                <div>
-                  <div className="font-semibold text-lg">David S</div>
-                  <div className="text-blue-200">Director of Admissions, Pacific College of Health and Science</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 border border-yellow-200 rounded-full mb-6 animate-bounce-subtle">
-            <span className="text-sm font-semibold text-gray-900">LIMITED OFFER</span>
-          </div>
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            First 10 institutions get exclusive benefits
-          </h2>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-            Be one of the first to experience the future of transfer credit evaluation. Join our beta program and unlock premium features before anyone else.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/book-demo" className="group bg-gray-900 text-white px-10 py-4 rounded-lg hover:bg-gray-800 transition-all font-semibold text-lg shadow-xl hover:shadow-2xl flex items-center gap-2 hover:scale-105 duration-300">
-              Book a Demo
-              <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-8 pt-10 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-green-600" />
-              <span>Free implementation</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-green-600" />
-              <span>Dedicated support</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-green-600" />
-              <span>Custom training</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
