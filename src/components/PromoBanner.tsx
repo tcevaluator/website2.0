@@ -1,19 +1,24 @@
 import { useState, useEffect } from 'react';
 import { X, Sparkles } from 'lucide-react';
 
-function PromoBanner() {
+interface PromoBannerProps {
+  onVisibilityChange?: (isVisible: boolean) => void;
+}
+
+function PromoBanner({ onVisibilityChange }: PromoBannerProps) {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const bannerClosed = localStorage.getItem('nacadaBannerClosed');
-    if (bannerClosed === 'true') {
-      setIsVisible(false);
-    }
-  }, []);
+    const visible = bannerClosed !== 'true';
+    setIsVisible(visible);
+    onVisibilityChange?.(visible);
+  }, [onVisibilityChange]);
 
   const handleClose = () => {
     setIsVisible(false);
     localStorage.setItem('nacadaBannerClosed', 'true');
+    onVisibilityChange?.(false);
   };
 
   if (!isVisible) return null;

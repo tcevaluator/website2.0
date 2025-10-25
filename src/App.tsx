@@ -9,6 +9,7 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,11 +30,11 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <SEO />
-      <PromoBanner />
+      <PromoBanner onVisibilityChange={setBannerVisible} />
       {/* Navigation */}
-      <nav className={`fixed w-full top-12 z-50 transition-all duration-300 ${
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled || mobileMenuOpen ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
-      }`}>
+      }`} style={{ top: bannerVisible ? '48px' : '0px' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex-shrink-0">
@@ -190,7 +191,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-44 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ paddingTop: bannerVisible ? '11rem' : '8rem' }}>
         {/* Particles Background */}
         <Particles className="absolute inset-0 z-0" />
 
