@@ -385,14 +385,14 @@ function BookDemo() {
                 </div>
 
                 <div>
-                  <label htmlFor="studentsPerYear" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="students_per_year" className="block text-sm font-semibold text-gray-700 mb-2">
                     Transfer Students Per Year *
                   </label>
                   <select
                     id="studentsPerYear"
-                    name="studentsPerYear"
+                    name="students_per_year"
                     required
-                    value={formData.studentsPerYear}
+                    value={formData.students_per_year}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
                   >
