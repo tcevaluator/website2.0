@@ -117,9 +117,9 @@ function About() {
               <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
                 <span className="text-2xl font-bold text-blue-600">4</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Instant Reports & SIS Integration</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Professional / Clear Evaluation Summaries</h3>
               <p className="text-gray-600 leading-relaxed">
-                Final evaluations can be exported or sent directly to your Student Information System (SIS)—including Anthology, Jenzabar, Banner, PeopleSoft, and others—creating a seamless digital record of each evaluation.
+                Students receive clear, organized reports outlining how each course transfers and applies toward their program. This also provides a clearly documented audit trail for compliance and recordkeeping. 
               </p>
             </div>
           </div>
@@ -138,7 +138,7 @@ function About() {
               <Zap className="text-blue-600 mb-4 group-hover:scale-110 transition-transform" size={32} />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Speed</h3>
               <p className="text-gray-600 leading-relaxed">
-                What once took hours per student now takes minutes. TC Evaluator automates repetitive tasks so staff can focus on oversight instead of data entry.
+                What once took up to an hour or more, now takes minutes. TC Evaluator automates repetitive tasks so staff can focus on oversight instead of data entry.
               </p>
             </div>
 
@@ -154,7 +154,7 @@ function About() {
               <TrendingUp className="text-blue-600 mb-4 group-hover:scale-110 transition-transform" size={32} />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Scalability</h3>
               <p className="text-gray-600 leading-relaxed">
-                Whether you're processing 50 transcripts or 50,000, TC Evaluator handles it effortlessly—with built-in batch processing and concurrent evaluations.
+                Whether you're processing small or large volume, TC Evaluator handles it effortlessly with built-in batch processing and concurrent evaluations.
               </p>
             </div>
 
@@ -168,9 +168,9 @@ function About() {
 
             <div className="group p-8 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all">
               <Brain className="text-blue-600 mb-4 group-hover:scale-110 transition-transform" size={32} />
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Integration</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Rapid Deployment</h3>
               <p className="text-gray-600 leading-relaxed">
-                Plug-and-play compatibility with leading SIS and LMS systems ensures smooth data flow without disrupting your existing workflow.
+                Seamless onboarding and setup that gets your institution running in just days.
               </p>
             </div>
 
@@ -178,7 +178,7 @@ function About() {
               <Users className="text-blue-600 mb-4 group-hover:scale-110 transition-transform" size={32} />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Student Experience</h3>
               <p className="text-gray-600 leading-relaxed">
-                Students can get instant preliminary transfer results through your website or portal—empowering them with transparency and increasing enrollment yield.
+                Students can get fast, clear, and accurate transfer results, emplwering them with transparency and increasing enrollment yield. 
               </p>
             </div>
           </div>
