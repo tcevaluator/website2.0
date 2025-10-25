@@ -193,8 +193,8 @@ function App() {
         <Particles className="absolute inset-0 z-0" />
 
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-white z-0"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-white z-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent z-10 pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -622,8 +622,10 @@ function App() {
       </section>
 
       {/* Stats/Impact Section */}
-      <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-900 to-blue-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-gray-900 to-blue-900 text-white overflow-hidden">
+        {/* Particles Background */}
+        <Particles className="absolute inset-0 z-0" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-5xl font-bold mb-6">The transfer credit crisis</h2>
