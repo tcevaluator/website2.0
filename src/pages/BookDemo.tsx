@@ -477,15 +477,6 @@ function BookDemo() {
                       <p className="text-gray-600">See how TC Evaluator fits your institution's specific workflow</p>
                     </div>
                   </div>
-
-                  {/* <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
-                    <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={24} />
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Integration Overview</h4>
-                      <p className="text-gray-600">Learn about connecting with your existing SIS and systems</p>
-                    </div>
-                  </div> */}
-
                   <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
                     <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={24} />
                     <div>
@@ -518,23 +509,6 @@ function BookDemo() {
                     <div className="text-3xl font-bold mb-1">100+</div>
                     <div className="text-sm text-blue-100">Institutions</div>
                   </div>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Prefer to talk first?</h3>
-                <p className="text-gray-600 mb-6">
-                  Our team is ready to answer your questions and help you get started.
-                </p>
-                <div className="space-y-3">
-                  <a href="mailto:sales@tcevaluator.com" className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors">
-                    <Mail size={20} />
-                    <span className="font-medium">sales@tcevaluator.com</span>
-                  </a>
-                  <a href="tel:+15551234567" className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors">
-                    <Phone size={20} />
-                    <span className="font-medium">+1 (555) 123-4567</span>
-                  </a>
                 </div>
               </div>
             </div>
