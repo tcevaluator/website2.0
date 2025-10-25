@@ -244,119 +244,6 @@ function Pricing() {
   </div>
 </div>
       </section>
-
-      {/* Add-ons Section */}
-      {/* <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Add-On Services</h2>
-            <p className="text-xl text-gray-600">Enhance your plan with additional features</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <Users className="text-blue-600 mb-3" size={24} />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Extra Users</h3>
-              <p className="text-gray-600 mb-3">$100 per user/month</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <Building2 className="text-blue-600 mb-3" size={24} />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Extra Programs</h3>
-              <p className="text-gray-600 mb-3">$200 per block of 5 programs</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <Zap className="text-blue-600 mb-3" size={24} />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Overage Evaluations</h3>
-              <p className="text-gray-600 mb-3">$18 per evaluation beyond plan limit</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-              <Sparkles className="text-blue-600 mb-3" size={24} />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Annual Prepay</h3>
-              <p className="text-gray-600 mb-3">10-15% discount on annual commitment</p>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-6 text-white">
-              <h3 className="text-2xl font-bold mb-2">Custom Enterprise Plans</h3>
-              <p className="text-blue-100 mb-4">For institutions needing 500+ evaluations or 50+ programs per month</p>
-              <a
-                href="/book-demo"
-                className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-semibold"
-              >
-                Contact Sales
-                <ArrowRight size={20} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* ROI Calculator Section */}
-      {/* <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Calculate Your ROI</h2>
-            <p className="text-xl text-blue-100">See how much TC Evaluator can save your institution</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6">Current Manual Process</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center pb-3 border-b border-white/20">
-                  <span className="text-blue-100">Average time per evaluation</span>
-                  <span className="font-bold text-xl">45 min</span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-white/20">
-                  <span className="text-blue-100">Evaluations per year (1,000)</span>
-                  <span className="font-bold text-xl">750 hrs</span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-white/20">
-                  <span className="text-blue-100">Average hourly cost ($40)</span>
-                  <span className="font-bold text-xl">$30,000</span>
-                </div>
-                <div className="flex justify-between items-center pt-2">
-                  <span className="text-lg font-semibold">Annual Cost</span>
-                  <span className="font-bold text-3xl text-red-300">$30,000</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-500 to-green-700 border-2 border-green-400 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6">With TC Evaluator</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center pb-3 border-b border-white/20">
-                  <span className="text-green-100">Average time per evaluation</span>
-                  <span className="font-bold text-xl">5 min</span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-white/20">
-                  <span className="text-green-100">Evaluations per year (1,000)</span>
-                  <span className="font-bold text-xl">83 hrs</span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-white/20">
-                  <span className="text-green-100">Labor cost + Platform ($6,500/mo)</span>
-                  <span className="font-bold text-xl">$81,300</span>
-                </div>
-                <div className="flex justify-between items-center pt-2">
-                  <span className="text-lg font-semibold">Annual Savings</span>
-                  <span className="font-bold text-3xl text-yellow-300">Save 89%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-lg text-blue-100">
-              Plus: <strong className="text-white">Improved accuracy, faster student enrollment, better student experience, and scalable capacity</strong>
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Plan Comparison Table */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -462,12 +349,6 @@ function Pricing() {
               <h3 className="text-lg font-bold text-gray-900 mb-2">Can I change plans later?</h3>
               <p className="text-gray-600">Absolutely. You can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle.</p>
             </div>
-
-            {/* <div className="bg-white p-6 rounded-xl border border-gray-200">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">What happens if I exceed my evaluation limit?</h3>
-              <p className="text-gray-600">You'll be charged $3 per additional evaluation, or you can upgrade to a higher tier for better value.</p>
-            </div> */}
-
             <div className="bg-white p-6 rounded-xl border border-gray-200">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Do you offer discounts for annual billing?</h3>
               <p className="text-gray-600">Yes! Contact our sales team for more details.</p>
