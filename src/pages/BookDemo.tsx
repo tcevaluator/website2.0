@@ -60,7 +60,7 @@ function BookDemo() {
                   { name: 'phone', value: cleanPhone },
                   { name: 'company', value: formData.institution },
                   { name: 'jobtitle', value: formData.role },
-                  { name: 'students_per_year', value: formData.studentsPerYear },
+                  { name: 'students_per_year', value: formData.students_per_year },
                   { name: 'message', value: formData.message },
                 ],
                 context: {
