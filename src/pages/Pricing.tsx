@@ -230,10 +230,23 @@ function Pricing() {
             </div>
           </div>
         </div>
+        <div className="mt-8 text-center">
+  <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-6 text-white">
+    <h3 className="text-2xl font-bold mb-2">Custom Enterprise Plans</h3>
+    <p className="text-blue-100 mb-4">For institutions needing 500+ evaluations or 50+ programs per month</p>
+    <a
+      href="/book-demo"
+      className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-semibold"
+    >
+      Contact Sales
+      <ArrowRight size={20} />
+    </a>
+  </div>
+</div>
       </section>
 
       {/* Add-ons Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      {/* <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Add-On Services</h2>
@@ -280,10 +293,10 @@ function Pricing() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ROI Calculator Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+      {/* <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Calculate Your ROI</h2>
@@ -434,7 +447,7 @@ function Pricing() {
           </div>
         </div>
       </section>
-
+ */}
       {/* FAQ Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
