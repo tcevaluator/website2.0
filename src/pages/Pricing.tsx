@@ -455,7 +455,7 @@ function Pricing() {
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-xl border border-gray-200">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Is there a free trial?</h3>
-              <p className="text-gray-600">Yes! We offer a 14-day free trial with full access to all Professional plan features. No credit card required.</p>
+              <p className="text-gray-600">Yes! We offer free trial with full access to all Professional plan features. No credit card required.</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl border border-gray-200">
@@ -463,14 +463,14 @@ function Pricing() {
               <p className="text-gray-600">Absolutely. You can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle.</p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-200">
+            {/* <div className="bg-white p-6 rounded-xl border border-gray-200">
               <h3 className="text-lg font-bold text-gray-900 mb-2">What happens if I exceed my evaluation limit?</h3>
               <p className="text-gray-600">You'll be charged $3 per additional evaluation, or you can upgrade to a higher tier for better value.</p>
-            </div>
+            </div> */}
 
             <div className="bg-white p-6 rounded-xl border border-gray-200">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Do you offer discounts for annual billing?</h3>
-              <p className="text-gray-600">Yes! Save 15% when you pay annually. Contact our sales team for more details.</p>
+              <p className="text-gray-600">Yes! Contact our sales team for more details.</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl border border-gray-200">
