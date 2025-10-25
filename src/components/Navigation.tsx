@@ -78,7 +78,7 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
             onClick={closeMobileMenu}
           />
 
-          <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 z-50 md:hidden overflow-y-auto" style={{ height: '100vh' }}>
+          <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 z-50 md:hidden overflow-y-auto" style={{ height: '100vh !important' }}>
             <div className="flex flex-col min-h-full">
               <div className="flex items-center justify-between p-6 border-b border-gray-700">
                 <Link to="/" onClick={closeMobileMenu}>
