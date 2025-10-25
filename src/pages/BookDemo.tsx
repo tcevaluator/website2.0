@@ -4,6 +4,7 @@ import { Calendar, CheckCircle2, Mail, Phone, Building2, User, MessageSquare } f
 import { createClient } from '@supabase/supabase-js';
 import emailjs from '@emailjs/browser';
 import SEO from '../components/SEO';
+import Navigation from '../components/Navigation';
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -236,22 +237,7 @@ function BookDemo() {
         description="Schedule a personalized demo of TCEvaluator and see how AI can transform your transfer credit evaluation process. Book your demo today."
         canonical="https://tcevaluator.com/book-demo"
       />
-      {/* Navigation */}
-      <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-lg shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex-shrink-0">
-              <img src="/logo.svg" alt="TCEvaluator" className="h-8" />
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Home</Link>
-              <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">About</Link>
-              <Link to="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Pricing</Link>
-              <Link to="/book-demo" className="text-blue-600 text-sm font-medium">Book a Demo</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">

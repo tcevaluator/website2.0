@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import Navigation from '../components/Navigation';
 
 function Terms() {
   return (
@@ -10,23 +11,7 @@ function Terms() {
         canonical="https://tcevaluator.com/terms"
       />
 
-      <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-lg shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex-shrink-0">
-              <img src="/logo.svg" alt="TCEvaluator" className="h-8" />
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Home</Link>
-              <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">About</Link>
-              <Link to="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Pricing</Link>
-              <Link to="/book-demo" className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
-                Book a Demo
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <h1 className="text-5xl font-bold text-gray-900 mb-4">Terms of Service</h1>
