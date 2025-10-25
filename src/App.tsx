@@ -319,7 +319,7 @@ function App() {
               <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors group-hover:scale-110 duration-300">
                 <Zap className="text-blue-600" size={24} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">10x Faster Processing</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Up to 10x Faster Processing</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Reduce evaluation time from 45 minutes to 5 minutes with intelligent automation.
               </p>
@@ -345,7 +345,7 @@ function App() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Unlimited Scalability</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Handle unlimited evaluations without adding staff or infrastructure.
+                Scale seamlessly to support any volume of evaluations
               </p>
               <div className="text-sm text-purple-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                 Learn more <ChevronRight size={16} />
@@ -447,7 +447,7 @@ function App() {
                         </div>
                         <div>
                           <div className="font-semibold text-gray-900 mb-1">Unlimited Capacity</div>
-                          <span className="text-gray-700 leading-relaxed">Handles <span className="font-bold text-blue-600">thousands</span> of evaluations simultaneously</span>
+                          <span className="text-gray-700 leading-relaxed">Manages extensive evaluation <span className="font-bold text-blue-600">workloads with ease</span></span> 
                         </div>
                       </div>
                     </td>
@@ -489,7 +489,7 @@ function App() {
                   </tr>
                   <tr className="group hover:bg-gradient-to-r hover:from-green-50/50 hover:to-blue-50/30 transition-all duration-300 border-b border-gray-100">
                     <td className="px-8 py-6">
-                      <div className="font-bold text-gray-900 text-base">Compliance</div>
+                      <div className="font-bold text-gray-900 text-base">Security</div>
                     </td>
                     <td className="px-8 py-6">
                       <div className="flex items-start gap-3">
