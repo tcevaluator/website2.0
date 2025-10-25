@@ -193,10 +193,10 @@ function App() {
         <Particles className="absolute inset-0 z-0" />
 
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-white z-10 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 via-white/80 to-white z-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent z-10 pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto relative">
+        <div className="max-w-7xl mx-auto relative z-20">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-8 animate-fade-in-up">
