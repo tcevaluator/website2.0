@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 interface NavigationProps {
-  activeLink?: 'home' | 'about' | 'pricing' | 'security';
+  activeLink?: 'home' | 'about' | 'pricing';
   scrolled?: boolean;
 }
 
@@ -55,7 +55,6 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
             <Link to="/" className={linkClass('home')}>Home</Link>
             <Link to="/about" className={linkClass('about')}>About</Link>
             <Link to="/pricing" className={linkClass('pricing')}>Pricing</Link>
-            <Link to="/security" className={linkClass('security')}>Security</Link>
             <Link to="/book-demo" className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
               Book a Demo
             </Link>
@@ -115,13 +114,6 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
                     className="block px-4 py-4 text-white text-xl font-medium hover:bg-gray-800 rounded-lg"
                   >
                     Pricing
-                  </Link>
-                  <Link
-                    to="/security"
-                    onClick={closeMobileMenu}
-                    className="block px-4 py-4 text-white text-xl font-medium hover:bg-gray-800 rounded-lg"
-                  >
-                    Security
                   </Link>
                 </div>
 
