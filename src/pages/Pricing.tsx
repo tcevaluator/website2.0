@@ -389,15 +389,15 @@ function Pricing() {
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-3 text-sm">
                 <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="/book-demo" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="/book-demo" className="hover:text-white transition-colors">Book a Demo</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Legal</h4>
               <ul className="space-y-3 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
+                <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li><a href="/security" className="hover:text-white transition-colors">Security</a></li>
               </ul>
             </div>
           </div>

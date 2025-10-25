@@ -753,7 +753,7 @@ function App() {
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-3 text-sm">
                 <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                <li><a href="mailto:info@tcevaluator.com" className="hover:text-white transition-colors">Contact</a></li>
+                <li><Link to="/book-demo" className="hover:text-white transition-colors">Book a Demo</Link></li>
               </ul>
             </div>
             <div>
