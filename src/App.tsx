@@ -504,40 +504,7 @@ function App() {
                     </td>
                     <td className="px-8 py-6 text-gray-500 italic">Higher risk of manual oversight errors</td>
                   </tr>
-                  {/* <tr className="group hover:bg-gradient-to-r hover:from-green-50/50 hover:to-blue-50/30 transition-all duration-300 border-b border-gray-100">
-                    <td className="px-8 py-6">
-                      <div className="font-bold text-gray-900 text-base">Reporting & Analytics</div>
-                    </td>
-                    <td className="px-8 py-6">
-                      <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
-                          <CheckCircle2 size={16} className="text-green-600" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-900 mb-1">Real-Time Insights</div>
-                          <span className="text-gray-700 leading-relaxed">Built-in dashboards, audit logs, and comprehensive metrics</span>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-6 text-gray-500 italic">Requires manual tracking and spreadsheets</td>
-                  </tr> */}
-                  {/* <tr className="group hover:bg-gradient-to-r hover:from-green-50/50 hover:to-blue-50/30 transition-all duration-300 border-b border-gray-100">
-                    <td className="px-8 py-6">
-                      <div className="font-bold text-gray-900 text-base">Integration</div>
-                    </td>
-                    <td className="px-8 py-6">
-                      <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
-                          <CheckCircle2 size={16} className="text-green-600" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-900 mb-1">Seamless Integration</div>
-                          <span className="text-gray-700 leading-relaxed">Direct connections to all major SIS platforms</span>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-6 text-gray-500 italic">Often involves manual re-keying or CSV imports</td>
-                  </tr> */}
+                
                   <tr className="group hover:bg-gradient-to-r hover:from-green-50/50 hover:to-blue-50/30 transition-all duration-300 border-b border-gray-100">
                     <td className="px-8 py-6">
                       <div className="font-bold text-gray-900 text-base">Student Experience</div>
