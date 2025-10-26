@@ -77,7 +77,7 @@ export default function ParticlesComponent() {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: { min: 2, max: 6 },
         },
       },
       detectRetina: true,
