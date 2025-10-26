@@ -47,8 +47,8 @@ function App() {
               <a href="#comparison" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Comparison</a>
               <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">About</Link>
               <Link to="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Pricing</Link>
-              <Link to="/contact" className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
-                Contact Us
+              <Link to="/book-demo" className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
+                Book a Demo
               </Link>
             </div>
 
@@ -71,7 +71,7 @@ function App() {
         )}
 
         {/* Mobile Navigation - Menu Panel */}
-        <div className={`fixed top-0 right-0 bottom-0 left-0 z-50 md:hidden transition-transform duration-500 ease-out ${
+        <div className={`fixed top-0 right-0 bottom-0 left-0 z-50 md:hidden transition-transform duration-500 ease-out height100 ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`} style={{ backgroundColor: '#111827' }}>
           <div className="h-full w-full flex flex-col">
@@ -139,11 +139,11 @@ function App() {
               {/* CTA Section */}
               <div className="mt-12 space-y-4">
                 <Link
-                  to="/contact"
+                  to="/book-demo"
                   onClick={() => setMobileMenuOpen(false)}
                   className="group flex items-center justify-between w-full bg-white text-gray-900 px-8 py-5 rounded-xl hover:bg-gray-100 transition-all font-semibold text-lg shadow-lg"
                 >
-                  <span>Contact Us</span>
+                  <span>Book a Demo</span>
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
 
@@ -217,8 +217,8 @@ function App() {
                 Reduce evaluation time from 45 minutes to 5 minutes. Join leading institutions transforming their transfer credit process.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Link to="/about" className="group bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:scale-105">
-                  Learn More
+                <Link to="/book-demo" className="group bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:scale-105">
+                  Start Free Trial
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <button
@@ -229,7 +229,17 @@ function App() {
                   Watch Demo
                 </button>
               </div>
-             
+              <div className="flex flex-wrap items-center gap-6 pt-4 text-sm text-gray-600">
+                
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-green-600" />
+                  <span>Free trial</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-green-600" />
+                  <span>Cancel anytime</span>
+                </div>
+              </div>
             </div>
 
             {/* Right Image */}
@@ -289,14 +299,14 @@ function App() {
           <p className="text-center text-sm font-medium text-gray-500 mb-8 animate-fade-in">TRUSTED BY LEADING INSTITUTIONS</p>
           <div className="flex flex-wrap items-center justify-center gap-16 transition-all duration-500">
             <img
-              src="/cleary-university-seeklogo-1.png"
-              alt="Cleary University"
-              className="h-16 animate-fade-in animation-delay-200"
-            />
-            <img
               src="/pc_logo.webp"
               alt="Pacific College of Health and Science"
               className="h-12 animate-fade-in animation-delay-100"
+            />
+            <img
+              src="/cleary-university-seeklogo-1.png"
+              alt="Cleary University"
+              className="h-16 animate-fade-in animation-delay-200"
             />
           </div>
         </div>
@@ -321,9 +331,7 @@ function App() {
                 Reduce evaluation time from 45 minutes to 5 minutes with intelligent automation.
               </p>
               <div className="text-sm text-blue-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                  <Link to="/about">
-                  Learn More 
-                </Link>
+                Learn more <ChevronRight size={16} />
               </div>
             </div>
             <div className="group p-8 rounded-2xl border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all bg-white hover:-translate-y-1 duration-300">
@@ -335,9 +343,7 @@ function App() {
                 Advanced machine learning ensures consistent, accurate evaluations every time.
               </p>
               <div className="text-sm text-green-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                 <Link to="/about">
-                  Learn More
-                </Link>
+                Learn more <ChevronRight size={16} />
               </div>
             </div>
             <div className="group p-8 rounded-2xl border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all bg-white hover:-translate-y-1 duration-300">
@@ -349,9 +355,7 @@ function App() {
                 Scale seamlessly to support any volume of evaluations
               </p>
               <div className="text-sm text-purple-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                 <Link to="/about">
-                  Learn More 
-                </Link>
+                Learn more <ChevronRight size={16} />
               </div>
             </div>
           </div>
@@ -742,7 +746,7 @@ function App() {
               <ul className="space-y-2 text-gray-400">
                 <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+                <li><Link to="/book-demo" className="hover:text-white transition-colors">Book Demo</Link></li>
               </ul>
             </div>
             <div>
@@ -750,7 +754,7 @@ function App() {
               <ul className="space-y-2 text-gray-400">
                 <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-                
+                <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
               </ul>
             </div>
           </div>
