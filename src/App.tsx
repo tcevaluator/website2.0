@@ -315,8 +315,7 @@ function App() {
                 Reduce evaluation time from 45 minutes to 5 minutes with intelligent automation.
               </p>
               <div className="text-sm text-blue-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                <Link to="/about">Learn more <ChevronRight size={16} />
-                </Link>
+                <Link to="/about">Learn more </Link>
                 
               </div>
             </div>
@@ -329,8 +328,7 @@ function App() {
                 Advanced machine learning ensures consistent, accurate evaluations every time.
               </p>
               <div className="text-sm text-green-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                <Link to="/about">Learn more <ChevronRight size={16} />
-                </Link>
+                <Link to="/about">Learn more  </Link>
               </div>
             </div>
             <div className="group p-8 rounded-2xl border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all bg-white hover:-translate-y-1 duration-300">
@@ -342,8 +340,7 @@ function App() {
                 Scale seamlessly to support any volume of evaluations
               </p>
               <div className="text-sm text-purple-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                <Link to="/about">Learn more <ChevronRight size={16} />
-                </Link>
+                <Link to="/about">Learn more </Link>
               </div>
             </div>
           </div>
