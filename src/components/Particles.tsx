@@ -38,20 +38,20 @@ export default function ParticlesComponent() {
         },
         modes: {
           repulse: {
-            distance: 100,
+            distance: 150,
             duration: 0.4,
           },
         },
       },
       particles: {
         color: {
-          value: "#4338ca",
+          value: "#06d8dc",
         },
         links: {
-          color: "#4338ca",
-          distance: 150,
+          color: "#09aeb1",
+          distance: 200,
           enable: true,
-          opacity: 0.26,
+          opacity: 0.4,
           width: 1,
         },
         move: {
