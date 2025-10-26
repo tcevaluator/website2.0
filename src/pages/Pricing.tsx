@@ -144,7 +144,7 @@ function Pricing() {
                 buttonClass="group flex items-center justify-center gap-2 w-full text-center bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-bold shadow-xl"
               />
             </div>
-    
+          </div>
         
 </div>
     
