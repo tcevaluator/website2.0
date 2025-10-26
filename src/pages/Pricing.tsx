@@ -36,34 +36,34 @@ function Pricing() {
       {/* Pricing Cards */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
             {/* Starter Plan */}
-            <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-all">
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
-                <p className="text-gray-600">Perfect for small institutions getting started</p>
+            <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col">
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Starter</h3>
+                <p className="text-sm text-gray-600">Perfect for small institutions getting started</p>
               </div>
-              <div className="mb-8">
+              <div className="mb-6">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-gray-900">$500</span>
-                  <span className="text-gray-600">/month</span>
+                  <span className="text-4xl font-bold text-gray-900">$500</span>
+                  <span className="text-sm text-gray-600">/mo</span>
                 </div>
-               
-                <div className="mt-3 pt-3 border-t border-gray-200">
-                  <p className="text-sm text-gray-600">+ $3,000 implementation fee (one-time)</p>
-                  <p className="text-xs text-gray-500 mt-1">$20 effective cost per evaluation</p>
+
+                <div className="mt-2 pt-2 border-t border-gray-200">
+                  <p className="text-xs text-gray-600">+ $3,000 implementation</p>
+                  <p className="text-xs text-gray-500 mt-1">$20/evaluation</p>
                 </div>
               </div>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">25 evaluations/month</span>
+              <ul className="space-y-3 mb-6 flex-grow">
+                <li className="flex items-start gap-2">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-gray-700">25 evaluations/month</span>
                 </li>
-                 <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">3 programs supported</span>
+                 <li className="flex items-start gap-2">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-gray-700">3 programs supported</span>
                 </li>
-               
+
               </ul>
               <StripeCheckout
                 planName="Starter"
@@ -74,32 +74,32 @@ function Pricing() {
             </div>
 
             {/* Professional Plan - Featured */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 border-2 border-blue-600 rounded-3xl p-8 relative hover:shadow-2xl transition-all transform hover:scale-105">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
+            <div className="bg-gradient-to-br from-blue-600 to-blue-800 border-2 border-blue-600 rounded-2xl p-6 relative hover:shadow-2xl transition-all flex flex-col">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">
                 MOST POPULAR
               </div>
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Tier 1</h3>
-                <p className="text-blue-100">For growing institutions with high volume</p>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-white mb-2">Tier 1</h3>
+                <p className="text-sm text-blue-100">For growing institutions with high volume</p>
               </div>
-              <div className="mb-8">
+              <div className="mb-6">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-white">$1,900</span>
-                  <span className="text-blue-100">/month</span>
+                  <span className="text-4xl font-bold text-white">$1,900</span>
+                  <span className="text-sm text-blue-100">/mo</span>
                 </div>
-                <div className="mt-3 pt-3 border-t border-blue-400/30">
-                  <p className="text-sm text-blue-100">+ $5000 implementation fee (one-time)</p>
-                  <p className="text-xs text-blue-200 mt-1">$19 effective cost per evaluation</p>
+                <div className="mt-2 pt-2 border-t border-blue-400/30">
+                  <p className="text-xs text-blue-100">+ $5,000 implementation</p>
+                  <p className="text-xs text-blue-200 mt-1">$19/evaluation</p>
                 </div>
               </div>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">100 evaluations/month</span>
+              <ul className="space-y-3 mb-6 flex-grow">
+                <li className="flex items-start gap-2">
+                  <Check className="text-yellow-400 flex-shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-white">100 evaluations/month</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">20 programs supported</span>
+                <li className="flex items-start gap-2">
+                  <Check className="text-yellow-400 flex-shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-white">20 programs supported</span>
                 </li>
               </ul>
               <StripeCheckout
@@ -111,43 +111,76 @@ function Pricing() {
             </div>
             
 
-            {/* Enterprise Plan */}
-            <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-all">
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Tier 2</h3>
-                <p className="text-gray-600">For institution with more volume or programs</p>
+            {/* Tier 2 Plan */}
+            <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col">
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Tier 2</h3>
+                <p className="text-sm text-gray-600">For institution with more volume or programs</p>
               </div>
-              <div className="mb-8">
+              <div className="mb-6">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-gray-900">$2,900</span>
-                  <span className="text-gray-600">/month</span>
+                  <span className="text-4xl font-bold text-gray-900">$2,900</span>
+                  <span className="text-sm text-gray-600">/mo</span>
                 </div>
-                <div className="mt-3 pt-3 border-t border-gray-200">
-                  <p className="text-sm text-gray-600">+ $8,000 implementation fee (one-time)</p>
-                  <p className="text-xs text-gray-500 mt-1">$17 effective cost per evaluation</p>
+                <div className="mt-2 pt-2 border-t border-gray-200">
+                  <p className="text-xs text-gray-600">+ $8,000 implementation</p>
+                  <p className="text-xs text-gray-500 mt-1">$17/evaluation</p>
                 </div>
               </div>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">170 evaluations/month</span>
+              <ul className="space-y-3 mb-6 flex-grow">
+                <li className="flex items-start gap-2">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-gray-700">170 evaluations/month</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">40 programs supported</span>
+                <li className="flex items-start gap-2">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-gray-700">40 programs supported</span>
                 </li>
               </ul>
                <StripeCheckout
-                planName="Professional"
-                priceId={import.meta.env.VITE_STRIPE_PROFESSIONAL_PRICE_ID}
+                planName="Tier 2"
+                priceId={import.meta.env.VITE_STRIPE_TIER2_PRICE_ID}
                 buttonText="Get Started"
-                buttonClass="group flex items-center justify-center gap-2 w-full text-center bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-bold shadow-xl"
+                buttonClass="block w-full text-center bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-all font-semibold"
               />
+            </div>
+
+            {/* Tier 3 Plan */}
+            <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col">
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Tier 3</h3>
+                <p className="text-sm text-gray-600">For large institutions with complex needs</p>
+              </div>
+              <div className="mb-6">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-gray-900">$4,900</span>
+                  <span className="text-sm text-gray-600">/mo</span>
+                </div>
+                <div className="mt-2 pt-2 border-t border-gray-200">
+                  <p className="text-xs text-gray-600">+ $12,000 implementation</p>
+                  <p className="text-xs text-gray-500 mt-1">$14/evaluation</p>
+                </div>
+              </div>
+              <ul className="space-y-3 mb-6 flex-grow">
+                <li className="flex items-start gap-2">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-gray-700">350 evaluations/month</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-gray-700">Unlimited programs</span>
+                </li>
+              </ul>
+              <a
+                href="/book-demo"
+                className="block w-full text-center bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-all font-semibold"
+              >
+                Contact Sales
+              </a>
             </div>
           </div>
         </div>
-</div>
-    </section>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
