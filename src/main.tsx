@@ -10,6 +10,7 @@ import Success from './pages/Success.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.tsx';
 import Terms from './pages/Terms.tsx';
 import Security from './pages/Security.tsx';
+import NACADA from './pages/NACADA.tsx';
 import ScrollToTop from './components/ScrollToTop.tsx';
 import './index.css';
 
@@ -28,6 +29,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/security" element={<Security />} />
+          <Route path="/nacada" element={<NACADA />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
