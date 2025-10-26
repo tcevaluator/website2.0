@@ -592,7 +592,7 @@ export default function NACADA() {
                         {/* Starter Plan */}
                         <button
                           type="button"
-                          onClick={() => handlePayNow('Starter', import.meta.env.VITE_STRIPE_STARTER_SETUP_PRICE_ID, 1000)}
+                          onClick={() => handlePayNow('Starter', import.meta.env.VITE_STRIPE_NACADASTARTER_PRICE_ID, 1000)}
                           disabled={isSubmitting}
                           className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50"
                         >
@@ -615,7 +615,7 @@ export default function NACADA() {
                         {/* Tier 1 Plan */}
                         <button
                           type="button"
-                          onClick={() => handlePayNow('Tier 1', import.meta.env.VITE_STRIPE_TIER1_SETUP_PRICE_ID, 3000)}
+                          onClick={() => handlePayNow('Tier 1', import.meta.env.VITE_STRIPE_NACADA1_PRICE_ID, 3000)}
                           disabled={isSubmitting}
                           className="group bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-500 rounded-xl p-6 text-left hover:shadow-xl transition-all disabled:opacity-50 relative"
                         >
@@ -641,7 +641,7 @@ export default function NACADA() {
                         {/* Tier 2 Plan */}
                         <button
                           type="button"
-                          onClick={() => handlePayNow('Tier 2', import.meta.env.VITE_STRIPE_TIER2_SETUP_PRICE_ID, 6000)}
+                          onClick={() => handlePayNow('Tier 2', import.meta.env.VITE_STRIPE_NACADA2_PRICE_ID, 6000)}
                           disabled={isSubmitting}
                           className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50"
                         >
