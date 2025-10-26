@@ -19,8 +19,45 @@ export default function NACADA() {
     title: '',
     email: ''
   });
+  const [paymentChoice, setPaymentChoice] = useState<'now' | 'later' | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handlePayNow = async () => {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/create-checkout-session`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+        },
+        body: JSON.stringify({
+          planName: 'NACADA Special - Setup Fee',
+          priceId: import.meta.env.VITE_STRIPE_NACADA_PRICE_ID,
+          customerEmail: formData.email,
+          metadata: {
+            institution: formData.institution,
+            name: formData.name,
+            title: formData.title,
+            signature: formData.signature,
+            offer_type: 'nacada_pay_now'
+          }
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create checkout session');
+      }
+
+      const { url } = await response.json();
+      window.location.href = url;
+    } catch (error) {
+      console.error('Error creating checkout:', error);
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,6 +116,7 @@ export default function NACADA() {
           name: formData.name,
           title: formData.title,
           email: formData.email,
+          payment_choice: paymentChoice,
           hubspot_submitted: hubspotSubmitted,
           hubspot_error: hubspotError,
         });
@@ -249,6 +287,75 @@ export default function NACADA() {
                   Our team will contact you within 24 hours to discuss next steps.
                 </p>
               </div>
+            ) : !paymentChoice ? (
+              <div className="space-y-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Choose Your Payment Option:</h3>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <button
+                    onClick={() => setPaymentChoice('now')}
+                    className="relative group bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-500 rounded-xl p-8 text-left hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      BEST VALUE
+                    </div>
+                    <h4 className="text-2xl font-bold text-gray-900 mb-2">Pay Now</h4>
+                    <div className="text-4xl font-bold text-green-600 mb-4">
+                      $2,000 OFF
+                    </div>
+                    <p className="text-gray-700 mb-4">
+                      Lock in your maximum discount by paying the setup fee today.
+                    </p>
+                    <ul className="space-y-2 text-sm text-gray-600 mb-6">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5 text-green-600" />
+                        <span>Immediate $2,000 discount</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5 text-green-600" />
+                        <span>Priority implementation</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5 text-green-600" />
+                        <span>Secure payment via Stripe</span>
+                      </li>
+                    </ul>
+                    <div className="text-center font-semibold text-green-700 group-hover:text-green-800">
+                      Select Pay Now →
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => setPaymentChoice('later')}
+                    className="relative group bg-white border-2 border-gray-300 rounded-xl p-8 text-left hover:border-gray-400 hover:shadow-lg transition-all duration-300"
+                  >
+                    <h4 className="text-2xl font-bold text-gray-900 mb-2">Pay Later</h4>
+                    <div className="text-4xl font-bold text-gray-600 mb-4">
+                      Flexible
+                    </div>
+                    <p className="text-gray-700 mb-4">
+                      Submit your Letter of Intent and pay the setup fee later.
+                    </p>
+                    <ul className="space-y-2 text-sm text-gray-600 mb-6">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5 text-gray-400" />
+                        <span>$2,000 discount if paid by Nov 1</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5 text-gray-400" />
+                        <span>$1,000 discount if paid by Nov 30</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5 text-gray-400" />
+                        <span>Standard processing timeline</span>
+                      </li>
+                    </ul>
+                    <div className="text-center font-semibold text-gray-700 group-hover:text-gray-900">
+                      Select Pay Later →
+                    </div>
+                  </button>
+                </div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Acknowledged and Agreed (Non-Binding):</h3>
@@ -345,13 +452,56 @@ export default function NACADA() {
                   </p>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gray-900 text-white px-6 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Submitting...' : 'Submit Letter of Intent'}
-                </button>
+                {paymentChoice === 'now' ? (
+                  <div className="space-y-4">
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <p className="text-sm text-green-800 font-medium">
+                        You've selected to pay now and receive an immediate $2,000 discount on setup fees!
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <button
+                        type="button"
+                        onClick={() => setPaymentChoice(null)}
+                        className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                      >
+                        Back
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handlePayNow}
+                        disabled={isSubmitting}
+                        className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? 'Processing...' : 'Proceed to Payment'}
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <p className="text-sm text-blue-800 font-medium">
+                        You've selected to pay later. Submit your LOI now and we'll send you payment instructions.
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <button
+                        type="button"
+                        onClick={() => setPaymentChoice(null)}
+                        className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                      >
+                        Back
+                      </button>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? 'Submitting...' : 'Submit Letter of Intent'}
+                      </button>
+                    </div>
+                  </div>
+                )}
               </form>
             )}
           </div>
