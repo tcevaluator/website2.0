@@ -322,7 +322,7 @@ function App() {
               </p>
               <div className="text-sm text-blue-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                   <Link to="/about">
-                  Learn More <ChevronRight size={16} />
+                  Learn More 
                 </Link>
               </div>
             </div>
@@ -336,7 +336,7 @@ function App() {
               </p>
               <div className="text-sm text-green-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                  <Link to="/about">
-                  Learn More <ChevronRight size={16} />
+                  Learn More
                 </Link>
               </div>
             </div>
@@ -350,7 +350,7 @@ function App() {
               </p>
               <div className="text-sm text-purple-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                  <Link to="/about">
-                  Learn More <ChevronRight size={16} />
+                  Learn More 
                 </Link>
               </div>
             </div>
