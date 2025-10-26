@@ -152,6 +152,7 @@ export default function NACADA() {
         body: JSON.stringify({
           planName: `${planName} - NACADA Special (Setup Fee)`,
           priceId: priceId,
+          mode: 'subscription',
           customerEmail: formData.email,
           metadata: {
             institution: formData.institution,

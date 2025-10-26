@@ -9,6 +9,7 @@ const corsHeaders = {
 interface CheckoutRequest {
   priceId: string;
   planName: string;
+  mode?: 'subscription' | 'payment';
   customerEmail?: string;
   metadata?: Record<string, string | number>;
 }
@@ -39,12 +40,12 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const { priceId, planName, customerEmail, metadata }: CheckoutRequest = await req.json();
+    const { priceId, planName, mode = 'subscription', customerEmail, metadata }: CheckoutRequest = await req.json();
 
     const params: Record<string, string> = {
       "success_url": `${req.headers.get("origin") || "http://localhost:5173"}/success?session_id={CHECKOUT_SESSION_ID}`,
       "cancel_url": `${req.headers.get("origin") || "http://localhost:5173"}/pricing`,
-      "mode": "subscription",
+      "mode": mode,
       "line_items[0][price]": priceId,
       "line_items[0][quantity]": "1",
       "metadata[plan_name]": planName,
