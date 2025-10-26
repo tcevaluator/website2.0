@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 interface StripeCheckoutProps {
   planName: string;
-  priceId?: string;
+  priceId?: string | string[];
   buttonText?: string;
   buttonClass?: string;
 }

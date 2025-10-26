@@ -67,7 +67,7 @@ function Pricing() {
               </ul>
               <StripeCheckout
                 planName="Starter"
-                priceId={import.meta.env.VITE_STRIPE_STARTER_PRICE_ID}
+                priceId={[import.meta.env.VITE_STRIPE_STARTER_PRICE_ID, 'price_1SMTuzA5GHv1atYrLHC0fRDR']}
                 buttonText="Get Started"
                 buttonClass="block w-full text-center bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-all font-semibold"
               />
@@ -104,7 +104,7 @@ function Pricing() {
               </ul>
               <StripeCheckout
                 planName="Professional"
-                priceId={import.meta.env.VITE_STRIPE_TIER1_PRICE_ID}
+                priceId={[import.meta.env.VITE_STRIPE_TIER1_PRICE_ID, 'price_1SMTvPA5GHv1atYrUYdUEgWO']}
                 buttonText="Get Started"
                 buttonClass="group flex items-center justify-center gap-2 w-full text-center bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-bold shadow-xl"
               />
@@ -139,7 +139,7 @@ function Pricing() {
               </ul>
                <StripeCheckout
                 planName="Tier 2"
-                priceId={import.meta.env.VITE_STRIPE_TIER2_PRICE_ID}
+                priceId={[import.meta.env.VITE_STRIPE_TIER2_PRICE_ID, 'price_1SMTvmA5GHv1atYryUBUj0us']}
                 buttonText="Get Started"
                 buttonClass="block w-full text-center bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-all font-semibold"
               />

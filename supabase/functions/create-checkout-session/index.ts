@@ -7,7 +7,7 @@ const corsHeaders = {
 };
 
 interface CheckoutRequest {
-  priceId: string;
+  priceId: string | string[];
   planName: string;
   mode?: 'subscription' | 'payment';
   customerEmail?: string;
@@ -46,11 +46,16 @@ Deno.serve(async (req: Request) => {
       "success_url": `${req.headers.get("origin") || "http://localhost:5173"}/success?session_id={CHECKOUT_SESSION_ID}`,
       "cancel_url": `${req.headers.get("origin") || "http://localhost:5173"}/pricing`,
       "mode": mode,
-      "line_items[0][price]": priceId,
-      "line_items[0][quantity]": "1",
       "metadata[plan_name]": planName,
       "allow_promotion_codes": "true",
     };
+
+    // Handle multiple price IDs
+    const priceIds = Array.isArray(priceId) ? priceId : [priceId];
+    priceIds.forEach((id, index) => {
+      params[`line_items[${index}][price]`] = id;
+      params[`line_items[${index}][quantity]`] = "1";
+    });
 
     if (customerEmail) {
       params["customer_email"] = customerEmail;
