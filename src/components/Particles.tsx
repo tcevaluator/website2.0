@@ -51,7 +51,7 @@ export default function ParticlesComponent() {
           color: "#09aeb1",
           distance: 200,
           enable: true,
-          opacity: 0.4,
+          opacity: 0.5,
           width: 1,
         },
         move: {
@@ -71,7 +71,7 @@ export default function ParticlesComponent() {
           value: 80,
         },
         opacity: {
-          value: 0.39,
+          value: 0.6,
         },
         shape: {
           type: "circle",
