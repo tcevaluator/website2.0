@@ -68,7 +68,7 @@ export default function ParticlesComponent() {
           density: {
             enable: true,
           },
-          value: 80,
+          value: 130,
         },
         opacity: {
           value: 0.6,
