@@ -23,7 +23,7 @@ export default function NACADA() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handlePayNow = async (planName: string, setupPriceId: string, subscriptionPriceId: string, implementationFee: number) => {
+  const handlePayNow = async (planName: string, setupPriceId: string, implementationFee: number) => {
     setIsSubmitting(true);
     try {
       let hubspotSubmitted = false;
@@ -150,9 +150,9 @@ export default function NACADA() {
           'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
         },
         body: JSON.stringify({
-          planName: `${planName} - NACADA Special`,
-          priceId: [subscriptionPriceId, setupPriceId],
-          mode: 'subscription',
+          planName: `${planName} - NACADA Special (Setup Fee)`,
+          priceId: setupPriceId,
+          mode: 'payment',
           customerEmail: formData.email,
           metadata: {
             institution: formData.institution,
@@ -596,7 +596,7 @@ export default function NACADA() {
                         {/* Starter Plan */}
                         <button
                           type="button"
-                          onClick={() => handlePayNow('Starter', import.meta.env.VITE_STRIPE_NACADASTARTER_PRICE_ID, 'price_1SM9egA5GHv1atYr6kvljmoL', 1000)}
+                          onClick={() => handlePayNow('Starter', import.meta.env.VITE_STRIPE_NACADASTARTER_PRICE_ID, 1000)}
                           disabled={isSubmitting}
                           className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50"
                         >
@@ -619,7 +619,7 @@ export default function NACADA() {
                         {/* Tier 1 Plan */}
                         <button
                           type="button"
-                          onClick={() => handlePayNow('Tier 1', import.meta.env.VITE_STRIPE_NACADA1_PRICE_ID, 'price_1SM9faA5GHv1atYruWggvWUK', 3000)}
+                          onClick={() => handlePayNow('Tier 1', import.meta.env.VITE_STRIPE_NACADA1_PRICE_ID, 3000)}
                           disabled={isSubmitting}
                           className="group bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-500 rounded-xl p-6 text-left hover:shadow-xl transition-all disabled:opacity-50 relative"
                         >
@@ -645,7 +645,7 @@ export default function NACADA() {
                         {/* Tier 2 Plan */}
                         <button
                           type="button"
-                          onClick={() => handlePayNow('Tier 2', import.meta.env.VITE_STRIPE_NACADA2_PRICE_ID, 'price_1SM9faA5GHv1atYruWggvWUK', 6000)}
+                          onClick={() => handlePayNow('Tier 2', import.meta.env.VITE_STRIPE_NACADA2_PRICE_ID, 6000)}
                           disabled={isSubmitting}
                           className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50"
                         >
