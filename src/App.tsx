@@ -335,7 +335,9 @@ function App() {
                 Advanced machine learning ensures consistent, accurate evaluations every time.
               </p>
               <div className="text-sm text-green-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                Learn more <ChevronRight size={16} />
+                 <Link to="/about">
+                  Learn More <ChevronRight size={16} />
+                </Link>
               </div>
             </div>
             <div className="group p-8 rounded-2xl border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all bg-white hover:-translate-y-1 duration-300">
@@ -347,7 +349,9 @@ function App() {
                 Scale seamlessly to support any volume of evaluations
               </p>
               <div className="text-sm text-purple-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                Learn more <ChevronRight size={16} />
+                 <Link to="/about">
+                  Learn More <ChevronRight size={16} />
+                </Link>
               </div>
             </div>
           </div>
