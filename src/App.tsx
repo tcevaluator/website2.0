@@ -217,8 +217,8 @@ function App() {
                 Reduce evaluation time from 45 minutes to 5 minutes. Join leading institutions transforming their transfer credit process.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Link to="/book-demo" className="group bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:scale-105">
-                  Start Free Trial
+                <Link to="/about" className="group bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:scale-105">
+                  Learn More
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <button
@@ -229,17 +229,7 @@ function App() {
                   Watch Demo
                 </button>
               </div>
-              <div className="flex flex-wrap items-center gap-6 pt-4 text-sm text-gray-600">
-                
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-green-600" />
-                  <span>Free trial</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-green-600" />
-                  <span>Cancel anytime</span>
-                </div>
-              </div>
+             
             </div>
 
             {/* Right Image */}
