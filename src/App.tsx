@@ -162,7 +162,7 @@ function App() {
 
             {/* Footer */}
             <div className="p-6 border-t border-white/10">
-              <div className="grid grid-cols-2 gap-4 text-center">
+              <div className="grid grid-cols-3 gap-4 text-center">
                 <Link
                   to="/privacy"
                   onClick={() => setMobileMenuOpen(false)}
@@ -176,6 +176,13 @@ function App() {
                   className="text-white/60 hover:text-white transition-colors text-sm"
                 >
                   Terms
+                </Link>
+                <Link
+                  to="/security"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-white/60 hover:text-white transition-colors text-sm"
+                >
+                  Security
                 </Link>
               </div>
             </div>
@@ -743,6 +750,7 @@ function App() {
               <ul className="space-y-2 text-gray-400">
                 <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+                <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
               </ul>
             </div>
           </div>
