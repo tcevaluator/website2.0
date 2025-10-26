@@ -23,7 +23,20 @@ export default function NACADA() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  const isFormValid = () => {
+    return formData.institution.trim() !== '' &&
+           formData.name.trim() !== '' &&
+           formData.title.trim() !== '' &&
+           formData.email.trim() !== '' &&
+           formData.signature.trim() !== '';
+  };
+
   const handlePayNow = async (planName: string, setupPriceId: string, implementationFee: number) => {
+    if (!isFormValid()) {
+      alert('Please fill out all required fields before selecting a plan.');
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       let hubspotSubmitted = false;
@@ -592,13 +605,20 @@ export default function NACADA() {
 
                     <div>
                       <h4 className="text-lg font-bold text-gray-900 mb-4">Select Your Plan:</h4>
+                      {!isFormValid() && (
+                        <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                          <p className="text-sm text-yellow-800">
+                            Please fill out all required fields above before selecting a plan.
+                          </p>
+                        </div>
+                      )}
                       <div className="grid md:grid-cols-3 gap-4">
                         {/* Starter Plan */}
                         <button
                           type="button"
                           onClick={() => handlePayNow('Starter', import.meta.env.VITE_STRIPE_NACADASTARTER_PRICE_ID, 1000)}
-                          disabled={isSubmitting}
-                          className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50"
+                          disabled={isSubmitting || !isFormValid()}
+                          className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <h5 className="text-xl font-bold text-gray-900 mb-2">Starter</h5>
                           <div className="mb-4">
@@ -620,8 +640,8 @@ export default function NACADA() {
                         <button
                           type="button"
                           onClick={() => handlePayNow('Tier 1', import.meta.env.VITE_STRIPE_NACADA1_PRICE_ID, 3000)}
-                          disabled={isSubmitting}
-                          className="group bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-500 rounded-xl p-6 text-left hover:shadow-xl transition-all disabled:opacity-50 relative"
+                          disabled={isSubmitting || !isFormValid()}
+                          className="group bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-500 rounded-xl p-6 text-left hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed relative"
                         >
                           <div className="absolute -top-2 -right-2 bg-yellow-400 text-gray-900 text-xs font-bold px-2 py-1 rounded-full">
                             POPULAR
@@ -646,8 +666,8 @@ export default function NACADA() {
                         <button
                           type="button"
                           onClick={() => handlePayNow('Tier 2', import.meta.env.VITE_STRIPE_NACADA2_PRICE_ID, 6000)}
-                          disabled={isSubmitting}
-                          className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50"
+                          disabled={isSubmitting || !isFormValid()}
+                          className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <h5 className="text-xl font-bold text-gray-900 mb-2">Tier 2</h5>
                           <div className="mb-4">
