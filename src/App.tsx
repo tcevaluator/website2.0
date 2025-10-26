@@ -289,14 +289,14 @@ function App() {
           <p className="text-center text-sm font-medium text-gray-500 mb-8 animate-fade-in">TRUSTED BY LEADING INSTITUTIONS</p>
           <div className="flex flex-wrap items-center justify-center gap-16 transition-all duration-500">
             <img
-              src="/pc_logo.webp"
-              alt="Pacific College of Health and Science"
-              className="h-12 animate-fade-in animation-delay-100"
-            />
-            <img
               src="/cleary-university-seeklogo-1.png"
               alt="Cleary University"
               className="h-16 animate-fade-in animation-delay-200"
+            />
+            <img
+              src="/pc_logo.webp"
+              alt="Pacific College of Health and Science"
+              className="h-12 animate-fade-in animation-delay-100"
             />
           </div>
         </div>
