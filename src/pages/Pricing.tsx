@@ -187,10 +187,6 @@ function Pricing() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Frequently Asked Questions</h2>
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl border border-gray-200">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Is there a free trial?</h3>
-              <p className="text-gray-600">Yes! We offer free trial with full access to all Professional plan features. No credit card required.</p>
-            </div>
 
             <div className="bg-white p-6 rounded-xl border border-gray-200">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Can I change plans later?</h3>
@@ -203,7 +199,7 @@ function Pricing() {
 
             <div className="bg-white p-6 rounded-xl border border-gray-200">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Is implementation included?</h3>
-              <p className="text-gray-600">Professional and Enterprise plans include full implementation support. Starter plans include basic setup assistance.</p>
+              <p className="text-gray-600">Yes! Implementation is included with all plans. In most cases the system can be implemented in a matter of days.</p>
             </div>
           </div>
         </div>
