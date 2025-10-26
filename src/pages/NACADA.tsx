@@ -23,7 +23,7 @@ export default function NACADA() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handlePayNow = async () => {
+  const handlePayNow = async (planName: string, priceId: string, implementationFee: number) => {
     setIsSubmitting(true);
     try {
       const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/create-checkout-session`, {
@@ -33,15 +33,18 @@ export default function NACADA() {
           'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
         },
         body: JSON.stringify({
-          planName: 'NACADA Special - Setup Fee',
-          priceId: import.meta.env.VITE_STRIPE_NACADA_PRICE_ID,
+          planName: `${planName} - NACADA Special (Setup Fee)`,
+          priceId: priceId,
           customerEmail: formData.email,
           metadata: {
             institution: formData.institution,
             name: formData.name,
             title: formData.title,
             signature: formData.signature,
-            offer_type: 'nacada_pay_now'
+            offer_type: 'nacada_pay_now',
+            plan_selected: planName,
+            implementation_fee: implementationFee,
+            discount_applied: 2000
           }
         })
       });
@@ -453,27 +456,97 @@ export default function NACADA() {
                 </div>
 
                 {paymentChoice === 'now' ? (
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                       <p className="text-sm text-green-800 font-medium">
                         You've selected to pay now and receive an immediate $2,000 discount on setup fees!
                       </p>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+
+                    <div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-4">Select Your Plan:</h4>
+                      <div className="grid md:grid-cols-3 gap-4">
+                        {/* Starter Plan */}
+                        <button
+                          type="button"
+                          onClick={() => handlePayNow('Starter', import.meta.env.VITE_STRIPE_STARTER_SETUP_PRICE_ID, 1000)}
+                          disabled={isSubmitting}
+                          className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50"
+                        >
+                          <h5 className="text-xl font-bold text-gray-900 mb-2">Starter</h5>
+                          <div className="mb-4">
+                            <div className="text-sm text-gray-500 line-through">$3,000 setup</div>
+                            <div className="text-3xl font-bold text-green-600">$1,000</div>
+                            <div className="text-xs text-gray-600 mt-1">$2,000 discount applied</div>
+                          </div>
+                          <div className="text-sm text-gray-600 space-y-1 mb-4">
+                            <div>• 25 evaluations/month</div>
+                            <div>• 3 programs</div>
+                            <div>• $500/month</div>
+                          </div>
+                          <div className="text-center text-sm font-semibold text-blue-600 group-hover:text-blue-700">
+                            Select Plan →
+                          </div>
+                        </button>
+
+                        {/* Tier 1 Plan */}
+                        <button
+                          type="button"
+                          onClick={() => handlePayNow('Tier 1', import.meta.env.VITE_STRIPE_TIER1_SETUP_PRICE_ID, 3000)}
+                          disabled={isSubmitting}
+                          className="group bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-500 rounded-xl p-6 text-left hover:shadow-xl transition-all disabled:opacity-50 relative"
+                        >
+                          <div className="absolute -top-2 -right-2 bg-yellow-400 text-gray-900 text-xs font-bold px-2 py-1 rounded-full">
+                            POPULAR
+                          </div>
+                          <h5 className="text-xl font-bold text-gray-900 mb-2">Tier 1</h5>
+                          <div className="mb-4">
+                            <div className="text-sm text-gray-500 line-through">$5,000 setup</div>
+                            <div className="text-3xl font-bold text-green-600">$3,000</div>
+                            <div className="text-xs text-gray-600 mt-1">$2,000 discount applied</div>
+                          </div>
+                          <div className="text-sm text-gray-700 space-y-1 mb-4">
+                            <div>• 100 evaluations/month</div>
+                            <div>• 20 programs</div>
+                            <div>• $1,900/month</div>
+                          </div>
+                          <div className="text-center text-sm font-semibold text-blue-600 group-hover:text-blue-700">
+                            Select Plan →
+                          </div>
+                        </button>
+
+                        {/* Tier 2 Plan */}
+                        <button
+                          type="button"
+                          onClick={() => handlePayNow('Tier 2', import.meta.env.VITE_STRIPE_TIER2_SETUP_PRICE_ID, 6000)}
+                          disabled={isSubmitting}
+                          className="group bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-500 hover:shadow-lg transition-all disabled:opacity-50"
+                        >
+                          <h5 className="text-xl font-bold text-gray-900 mb-2">Tier 2</h5>
+                          <div className="mb-4">
+                            <div className="text-sm text-gray-500 line-through">$8,000 setup</div>
+                            <div className="text-3xl font-bold text-green-600">$6,000</div>
+                            <div className="text-xs text-gray-600 mt-1">$2,000 discount applied</div>
+                          </div>
+                          <div className="text-sm text-gray-600 space-y-1 mb-4">
+                            <div>• 170 evaluations/month</div>
+                            <div>• 40 programs</div>
+                            <div>• $2,900/month</div>
+                          </div>
+                          <div className="text-center text-sm font-semibold text-blue-600 group-hover:text-blue-700">
+                            Select Plan →
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="text-center">
                       <button
                         type="button"
                         onClick={() => setPaymentChoice(null)}
-                        className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                        className="px-6 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors"
                       >
-                        Back
-                      </button>
-                      <button
-                        type="button"
-                        onClick={handlePayNow}
-                        disabled={isSubmitting}
-                        className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? 'Processing...' : 'Proceed to Payment'}
+                        ← Back to payment options
                       </button>
                     </div>
                   </div>
