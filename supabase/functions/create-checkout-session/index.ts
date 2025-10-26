@@ -9,6 +9,8 @@ const corsHeaders = {
 interface CheckoutRequest {
   priceId: string;
   planName: string;
+  customerEmail?: string;
+  metadata?: Record<string, string | number>;
 }
 
 Deno.serve(async (req: Request) => {
@@ -37,7 +39,27 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const { priceId, planName }: CheckoutRequest = await req.json();
+    const { priceId, planName, customerEmail, metadata }: CheckoutRequest = await req.json();
+
+    const params: Record<string, string> = {
+      "success_url": `${req.headers.get("origin") || "http://localhost:5173"}/success?session_id={CHECKOUT_SESSION_ID}`,
+      "cancel_url": `${req.headers.get("origin") || "http://localhost:5173"}/pricing`,
+      "mode": "subscription",
+      "line_items[0][price]": priceId,
+      "line_items[0][quantity]": "1",
+      "metadata[plan_name]": planName,
+      "allow_promotion_codes": "true",
+    };
+
+    if (customerEmail) {
+      params["customer_email"] = customerEmail;
+    }
+
+    if (metadata) {
+      Object.entries(metadata).forEach(([key, value]) => {
+        params[`metadata[${key}]`] = String(value);
+      });
+    }
 
     const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
       method: "POST",
@@ -45,15 +67,7 @@ Deno.serve(async (req: Request) => {
         Authorization: `Bearer ${stripeSecretKey}`,
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: new URLSearchParams({
-        "success_url": `${req.headers.get("origin") || "http://localhost:5173"}/success?session_id={CHECKOUT_SESSION_ID}`,
-        "cancel_url": `${req.headers.get("origin") || "http://localhost:5173"}/pricing`,
-        "mode": "subscription",
-        "line_items[0][price]": priceId,
-        "line_items[0][quantity]": "1",
-        "metadata[plan_name]": planName,
-        "allow_promotion_codes": "true",
-      }),
+      body: new URLSearchParams(params),
     });
 
     if (!response.ok) {
