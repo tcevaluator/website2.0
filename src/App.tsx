@@ -322,8 +322,7 @@ function App() {
               </p>
               <div className="text-sm text-blue-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                   <Link to="/about">
-                  Learn More
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  Learn More <ChevronRight size={16} />
                 </Link>
               </div>
             </div>
