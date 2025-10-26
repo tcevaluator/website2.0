@@ -12,8 +12,8 @@ interface NACADASubmission {
   signature: string;
   name: string;
   title: string;
-  date: string;
   email: string;
+  payment_choice?: 'now' | 'later';
 }
 
 Deno.serve(async (req: Request) => {
@@ -56,8 +56,8 @@ Deno.serve(async (req: Request) => {
                 hs_lead_status: "NEW",
                 lifecyclestage: "lead",
                 lead_source: "NACADA Conference LOI",
-                nacada_loi_date: submission.date,
                 nacada_loi_signature: submission.signature,
+                nacada_payment_choice: submission.payment_choice || 'later',
               },
             }),
           }
@@ -84,8 +84,10 @@ Deno.serve(async (req: Request) => {
         signature: submission.signature,
         name: submission.name,
         title: submission.title,
-        date: submission.date,
         email: submission.email,
+        payment_choice: submission.payment_choice || 'later',
+        hubspot_submitted: hubspotSubmitted,
+        hubspot_error: hubspotError,
       })
       .select()
       .single();
@@ -115,8 +117,8 @@ Deno.serve(async (req: Request) => {
             <p><strong>Name:</strong> ${submission.name}</p>
             <p><strong>Title:</strong> ${submission.title}</p>
             <p><strong>Email:</strong> ${submission.email}</p>
-            <p><strong>Date:</strong> ${submission.date}</p>
             <p><strong>Signature:</strong> ${submission.signature}</p>
+            <p><strong>Payment Choice:</strong> ${submission.payment_choice === 'now' ? 'Pay Now (Immediate $2,000 discount)' : 'Pay Later'}</p>
             <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
             ${hubspotSubmitted ? '<p style="color: green;">✓ Successfully added to HubSpot</p>' : '<p style="color: orange;">⚠ Not added to HubSpot</p>'}
           `,
@@ -155,7 +157,6 @@ Deno.serve(async (req: Request) => {
                 <li style="padding: 8px 0;"><strong>Name:</strong> ${submission.name}</li>
                 <li style="padding: 8px 0;"><strong>Title:</strong> ${submission.title}</li>
                 <li style="padding: 8px 0;"><strong>Email:</strong> ${submission.email}</li>
-                <li style="padding: 8px 0;"><strong>Date:</strong> ${submission.date}</li>
               </ul>
 
               <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 16px; margin: 24px 0;">
