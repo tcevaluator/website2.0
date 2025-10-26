@@ -507,22 +507,7 @@ export default function NACADA() {
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="signature" className="block text-sm font-medium text-gray-700 mb-2">
-                    Signature *
-                  </label>
-                  <input
-                    type="text"
-                    id="signature"
-                    name="signature"
-                    required
-                    value={formData.signature}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    placeholder="Type your full name as signature"
-                  />
-                </div>
-
+               
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Name *
@@ -541,7 +526,7 @@ export default function NACADA() {
 
                 <div>
                   <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
-                    Title *
+                   Job Title *
                   </label>
                   <input
                     type="text"
@@ -570,6 +555,22 @@ export default function NACADA() {
                     placeholder="your.email@institution.edu"
                   />
                 </div>
+                 <div>
+                  <label htmlFor="signature" className="block text-sm font-medium text-gray-700 mb-2">
+                    Signature *
+                  </label>
+                  <input
+                    type="text"
+                    id="signature"
+                    name="signature"
+                    required
+                    value={formData.signature}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="Type your full name as signature"
+                  />
+                </div>
+
 
                 <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                   <p className="text-sm text-gray-600">
