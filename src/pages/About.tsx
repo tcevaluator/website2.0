@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Users, Target, Award, GraduationCap } from 'lucide-react';
+import { Users, Target, Award, GraduationCap } from 'lucide-react';
 import SEO from '../components/SEO';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 export default function About() {
   return (
@@ -11,19 +13,7 @@ export default function About() {
         canonical="/about"
       />
 
-      <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-lg shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex-shrink-0">
-              <img src="/logo.svg" alt="TCEvaluator" className="h-8" />
-            </Link>
-            <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
-              <ArrowLeft size={16} />
-              Back to Home
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       <main className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,11 +89,7 @@ export default function About() {
         </div>
       </main>
 
-      <footer className="bg-gray-50 border-t border-gray-200 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
-          <p>&copy; 2024 TCEvaluator. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,187 +1,29 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, CheckCircle2, Zap, TrendingUp, Brain, Clock, Users, BarChart3, Sparkles, ChevronRight, Shield, FileText, Award, Play, XCircle, Building2, GraduationCap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Zap, TrendingUp, Brain, Clock, Users, BarChart3, Sparkles, Shield, FileText, Award, Play, XCircle, Building2, GraduationCap } from 'lucide-react';
 import SEO from './components/SEO';
 import Particles from './components/Particles';
 import PromoBanner from './components/PromoBanner';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 function App() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (videoOpen || mobileMenuOpen) {
+    if (videoOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [videoOpen, mobileMenuOpen]);
+  }, [videoOpen]);
 
   return (
     <div className="min-h-screen bg-white">
       <SEO />
       <PromoBanner onVisibilityChange={setBannerVisible} />
-      {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled || mobileMenuOpen ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
-      }`} style={{ top: bannerVisible ? '48px' : '0px' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex-shrink-0">
-              <img src="/logo.svg" alt="TCEvaluator" className="h-8" />
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Features</a>
-              <a href="#comparison" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Comparison</a>
-              <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">About</Link>
-              <Link to="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Pricing</Link>
-              <Link to="/contact" className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
-                Contact Us
-              </Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation - Backdrop */}
-        {mobileMenuOpen && (
-          <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden animate-fade-in"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-        )}
-
-        {/* Mobile Navigation - Menu Panel */}
-        <div className={`fixed top-0 right-0 bottom-0 left-0 z-50 md:hidden transition-transform duration-500 ease-out ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`} style={{ backgroundColor: '#111827' }}>
-          <div className="h-full w-full flex flex-col">
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
-              <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-                <img src="/logo.svg" alt="TCEvaluator" className="h-8 brightness-0 invert" />
-              </Link>
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
-              >
-                <X size={24} className="text-white" />
-              </button>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="flex-1 overflow-y-auto px-6 py-12">
-              <div className="space-y-2">
-                <a
-                  href="#features"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="group block py-4 px-6 rounded-xl hover:bg-white/10 transition-all"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-semibold text-white">Features</span>
-                    <ChevronRight size={24} className="text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                  </div>
-                </a>
-
-                <a
-                  href="#comparison"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="group block py-4 px-6 rounded-xl hover:bg-white/10 transition-all"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-semibold text-white">Comparison</span>
-                    <ChevronRight size={24} className="text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                  </div>
-                </a>
-
-                <Link
-                  to="/about"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="group block py-4 px-6 rounded-xl hover:bg-white/10 transition-all"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-semibold text-white">About</span>
-                    <ChevronRight size={24} className="text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                  </div>
-                </Link>
-
-                <Link
-                  to="/pricing"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="group block py-4 px-6 rounded-xl hover:bg-white/10 transition-all"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-semibold text-white">Pricing</span>
-                    <ChevronRight size={24} className="text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                  </div>
-                </Link>
-              </div>
-
-              {/* CTA Section */}
-              <div className="mt-12 space-y-4">
-                <Link
-                  to="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="group flex items-center justify-between w-full bg-white text-gray-900 px-8 py-5 rounded-xl hover:bg-gray-100 transition-all font-semibold text-lg shadow-lg"
-                >
-                  <span>Contact Us</span>
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-
-                <div className="flex items-center justify-center gap-8 pt-6 text-white/60 text-sm">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 size={16} />
-                    <span>Free trial</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 size={16} />
-                    <span>Cancel anytime</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Footer */}
-            <div className="p-6 border-t border-white/10">
-              <div className="grid grid-cols-2 gap-4 text-center">
-                <Link
-                  to="/privacy"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-white/60 hover:text-white transition-colors text-sm"
-                >
-                  Privacy
-                </Link>
-                <Link
-                  to="/terms"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-white/60 hover:text-white transition-colors text-sm"
-                >
-                  Terms
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation bannerVisible={bannerVisible} />
 
       {/* Hero Section */}
       <section className="relative pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ paddingTop: bannerVisible ? '11rem' : '8rem' }}>
@@ -720,37 +562,7 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="col-span-1 md:col-span-2">
-              <img src="/logo.svg" alt="TCEvaluator" className="h-8 mb-4 brightness-0 invert" />
-              <p className="text-gray-400 leading-relaxed">
-                AI-powered transfer credit evaluation platform designed for modern higher education institutions.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
-                <li><Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 TCEvaluator. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

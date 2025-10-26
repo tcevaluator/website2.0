@@ -1,17 +1,20 @@
 import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 export default function Success() {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
+    <div className="min-h-screen bg-white flex flex-col">
       <SEO
         title="Success - TCEvaluator"
         description="Thank you for your submission"
         canonical="/success"
       />
+      <Navigation />
 
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex-1 flex items-center justify-center py-16">
         <div className="mb-8">
           <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 size={48} className="text-green-600" />
@@ -41,6 +44,7 @@ export default function Success() {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
