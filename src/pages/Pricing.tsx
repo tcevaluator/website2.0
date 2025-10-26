@@ -109,6 +109,7 @@ function Pricing() {
                 buttonClass="group flex items-center justify-center gap-2 w-full text-center bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-bold shadow-xl"
               />
             </div>
+            
 
             {/* Enterprise Plan */}
             <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-all">
@@ -136,14 +137,29 @@ function Pricing() {
                   <span className="text-gray-700">40 programs supported</span>
                 </li>
               </ul>
-              <a
+               <StripeCheckout
+                planName="Professional"
+                priceId={import.meta.env.VITE_STRIPE_PROFESSIONAL_PRICE_ID}
+                buttonText="Get Started"
+                buttonClass="group flex items-center justify-center gap-2 w-full text-center bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-bold shadow-xl"
+              />
+            </div>
+    
+         {/* Custom Enterprise Plan */}
+            <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-all">
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Custom Enterprise Plans</h3>
+                <p className="text-gray-600">For institutions needing 500+ evaluations or 50+ programs per month</p>
+              </div>
+           
+               <a
                 href="/book-demo"
                 className="block w-full text-center bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-all font-semibold"
               >
                 Contact Sales
               </a>
             </div>
-          </div>
+         </div>
         </div>
         <div className="mt-8 text-center">
   <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-6 text-white">
