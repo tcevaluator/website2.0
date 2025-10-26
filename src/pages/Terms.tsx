@@ -13,7 +13,7 @@ function Terms() {
 
       <Navigation />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-44 pb-20">
         <h1 className="text-5xl font-bold text-gray-900 mb-4">Terms of Service</h1>
         <p className="text-gray-600 mb-12">Last updated: October 24, 2025</p>
 

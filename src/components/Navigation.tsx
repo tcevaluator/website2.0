@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import PromoBanner from './PromoBanner';
 
 interface NavigationProps {
   activeLink?: 'home' | 'about' | 'pricing';
@@ -10,6 +11,7 @@ interface NavigationProps {
 function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [internalScrolled, setInternalScrolled] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
 
   const scrolled = externalScrolled !== undefined ? externalScrolled : internalScrolled;
 
@@ -42,9 +44,11 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
   const closeMobileMenu = () => setIsOpen(false);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled || isOpen ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-white/80 backdrop-blur-lg shadow-sm'
-    }`}>
+    <>
+      <PromoBanner onVisibilityChange={setBannerVisible} />
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled || isOpen ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-white/80 backdrop-blur-lg shadow-sm'
+      }`} style={{ top: bannerVisible ? '48px' : '0px' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex-shrink-0">
@@ -158,6 +162,7 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
         </>
       )}
     </nav>
+    </>
   );
 }
 

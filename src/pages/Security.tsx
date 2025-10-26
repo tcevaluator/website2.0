@@ -15,7 +15,7 @@ export default function Security() {
 
       <Navigation />
 
-      <main className="pt-24 pb-16">
+      <main className="pt-36 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
