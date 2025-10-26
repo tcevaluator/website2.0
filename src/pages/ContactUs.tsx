@@ -264,7 +264,7 @@ function ContactUs() {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Form */}
             <div className="bg-white rounded-2xl border-2 border-gray-200 p-8 lg:p-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Request a Demo</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Us</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -380,13 +380,14 @@ function ContactUs() {
                     <option value="it">IT Administrator</option>
                     <option value="dean">Dean/Department Head</option>
                     <option value="evaluator">Credit Evaluator</option>
+                    <option value="executive">Executive</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="students_per_year" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Transfer Students Per Year *
+                    Active Student Population *
                   </label>
                   <select
                     id="students_per_year"
@@ -397,11 +398,12 @@ function ContactUs() {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
                   >
                     <option value="">Select range</option>
-                    <option value="0-100">0-100</option>
-                    <option value="101-500">101-500</option>
-                    <option value="501-1000">501-1,000</option>
-                    <option value="1001-2500">1,001-2,500</option>
-                    <option value="2500+">2,500+</option>
+                    <option value="0-500">0-500</option>
+                    <option value="500-1,500">500-1,500</option>
+                    <option value="1,500-3,000">1,500-3,000</option>
+                    <option value="3,000-10,000">3,000-10,000</option>
+                    <option value="10,000-20,000">10,000-20,000</option>
+                    <option value="20,000+">20,000+</option>
                   </select>
                 </div>
 
@@ -446,7 +448,7 @@ function ContactUs() {
             {/* Benefits */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">What to expect from your demo</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">What to expect from meeting with us</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
                     <CheckCircle2 className="text-blue-600 flex-shrink-0 mt-1" size={24} />
