@@ -164,7 +164,7 @@ function Pricing() {
               <ul className="space-y-3 mb-6 flex-grow">
                 <li className="flex items-start gap-2">
                   <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
-                  <span className="text-sm text-gray-700">-</span>
+                  <span className="text-sm text-gray-700">Unlimited evaluations</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
