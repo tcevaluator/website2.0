@@ -52,7 +52,7 @@ export default function ParticlesComponent() {
           distance: 200,
           enable: true,
           opacity: 0.4,
-          width: 5,
+          width: 2,
         },
         move: {
           direction: "none",
