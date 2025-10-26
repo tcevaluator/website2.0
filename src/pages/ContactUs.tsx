@@ -436,7 +436,7 @@ function ContactUs() {
                   disabled={loading}
                   className="w-full bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  {loading ? 'Submitting...' : 'Request Demo'}
+                  {loading ? 'Submitting...' : 'Submit'}
                 </button>
 
                 <p className="text-sm text-gray-500 text-center">
