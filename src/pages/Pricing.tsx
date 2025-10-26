@@ -48,13 +48,17 @@ function Pricing() {
                   <span className="text-5xl font-bold text-gray-900">$500</span>
                   <span className="text-gray-600">/month</span>
                 </div>
-                <p className="text-sm text-gray-500 mt-2">25 evaluations/month</p>
+               
                 <div className="mt-3 pt-3 border-t border-gray-200">
                   <p className="text-sm text-gray-600">+ $3,000 implementation fee (one-time)</p>
                   <p className="text-xs text-gray-500 mt-1">$20 effective cost per evaluation</p>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
+                  <span className="text-gray-700">25 evaluations/month</span>
+                </li>
                  <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
                   <span className="text-gray-700">3 programs supported</span>
@@ -83,13 +87,16 @@ function Pricing() {
                   <span className="text-5xl font-bold text-white">$1,900</span>
                   <span className="text-blue-100">/month</span>
                 </div>
-                <p className="text-sm text-blue-200 mt-2">100 evaluations/month</p>
                 <div className="mt-3 pt-3 border-t border-blue-400/30">
                   <p className="text-sm text-blue-100">+ $5000 implementation fee (one-time)</p>
                   <p className="text-xs text-blue-200 mt-1">$17.50 effective cost per evaluation</p>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
+                  <span className="text-white">100 evaluations/month</span>
+                </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
                   <span className="text-white">20 programs supported</span>
@@ -111,17 +118,19 @@ function Pricing() {
               </div>
               <div className="mb-8">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-gray-900">$2,000</span>
+                  <span className="text-5xl font-bold text-gray-900">$2,900</span>
                   <span className="text-gray-600">/month</span>
                 </div>
-                <p className="text-sm text-gray-500 mt-2">170 evaluations/month</p>
                 <div className="mt-3 pt-3 border-t border-gray-200">
                   <p className="text-sm text-gray-600">+ $8,000 implementation fee (one-time)</p>
                   <p className="text-xs text-gray-500 mt-1">$15 effective cost per evaluation</p>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
-               
+                <li className="flex items-start gap-3">
+                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
+                  <span className="text-gray-700">170 evaluations/month</span>
+                </li>
                 <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
                   <span className="text-gray-700">40 programs supported</span>
