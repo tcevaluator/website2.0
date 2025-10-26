@@ -45,13 +45,13 @@ export default function ParticlesComponent() {
       },
       particles: {
         color: {
-          value: "#6366f1",
+          value: "#4338ca",
         },
         links: {
-          color: "#6366f1",
+          color: "#4338ca",
           distance: 150,
           enable: true,
-          opacity: 0.2,
+          opacity: 0.26,
           width: 1,
         },
         move: {
@@ -71,7 +71,7 @@ export default function ParticlesComponent() {
           value: 80,
         },
         opacity: {
-          value: 0.3,
+          value: 0.39,
         },
         shape: {
           type: "circle",
