@@ -1,186 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New NACADA LOI Submission</title>
-</head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f3f4f6;">
-    <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f3f4f6;">
-        <tr>
-            <td style="padding: 40px 20px;">
-                <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 16px; max-width: 600px; margin: 0 auto">
+  <!-- Logo Header -->
+  <div style="padding: 24px 0; text-align: center; background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); border-radius: 8px 8px 0 0">
+    <div style="width: 48px; height: 48px; background-color: rgba(255, 255, 255, 0.2); border-radius: 50%; display: inline-block; margin-bottom: 12px">
+      <span style="color: #ffffff; font-size: 28px; line-height: 48px">🔔</span>
+    </div>
+    <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700">New NACADA Submission</h1>
+    <p style="margin: 8px 0 0 0; color: #fecaca; font-size: 13px">Letter of Intent Received</p>
+  </div>
 
-                    <!-- Header -->
-                    <tr>
-                        <td style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); padding: 40px 30px; text-align: center;">
-                            <div style="width: 60px; height: 60px; background-color: rgba(255, 255, 255, 0.2); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                            </div>
-                            <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">
-                                New NACADA Submission
-                            </h1>
-                            <p style="margin: 8px 0 0 0; color: #fecaca; font-size: 14px; font-weight: 500;">
-                                Letter of Intent Received
-                            </p>
-                        </td>
-                    </tr>
+  <!-- Alert Banner -->
+  <div style="padding: 20px 24px; background-color: #ffffff">
+    <div style="background-color: #fef2f2; border-left: 4px solid #dc2626; border-radius: 6px; padding: 12px">
+      <p style="margin: 0; color: #991b1b; font-size: 14px; font-weight: 600">
+        Action Required: New NACADA Conference Letter of Intent
+      </p>
+    </div>
+  </div>
 
-                    <!-- Alert Banner -->
-                    <tr>
-                        <td style="padding: 20px 30px;">
-                            <div style="background-color: #fef2f2; border-left: 4px solid #dc2626; border-radius: 8px; padding: 16px;">
-                                <p style="margin: 0; color: #991b1b; font-size: 14px; font-weight: 600;">
-                                    🔔 Action Required: New NACADA Conference Letter of Intent
-                                </p>
-                            </div>
-                        </td>
-                    </tr>
+  <!-- Contact Information -->
+  <div style="padding: 0 24px 20px 24px; background-color: #ffffff">
+    <h2 style="margin: 0 0 12px 0; color: #111827; font-size: 18px; font-weight: 700">Contact Information</h2>
+    <div style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 16px">
+      <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase">Name</p>
+      <p style="margin: 0 0 16px 0; color: #111827; font-size: 15px; font-weight: 600">{{name}}</p>
 
-                    <!-- Contact Information -->
-                    <tr>
-                        <td style="padding: 0 30px 20px 30px;">
-                            <h2 style="margin: 0 0 16px 0; color: #111827; font-size: 20px; font-weight: 700;">
-                                Contact Information
-                            </h2>
-                            <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;">
-                                <tr>
-                                    <td style="padding: 16px 20px; border-bottom: 1px solid #e5e7eb;">
-                                        <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Name</p>
-                                        <p style="margin: 0; color: #111827; font-size: 16px; font-weight: 600;">{{name}}</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 16px 20px; border-bottom: 1px solid #e5e7eb;">
-                                        <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Email</p>
-                                        <p style="margin: 0;">
-                                            <a href="mailto:{{user_email}}" style="color: #2563eb; font-size: 16px; font-weight: 600; text-decoration: none;">{{user_email}}</a>
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 16px 20px; border-bottom: 1px solid #e5e7eb;">
-                                        <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Institution</p>
-                                        <p style="margin: 0; color: #111827; font-size: 16px; font-weight: 600;">{{institution}}</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 16px 20px;">
-                                        <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Title</p>
-                                        <p style="margin: 0; color: #111827; font-size: 16px; font-weight: 600;">{{title}}</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+      <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; border-top: 1px solid #e5e7eb; padding-top: 16px">Email</p>
+      <p style="margin: 0 0 16px 0">
+        <a href="mailto:{{user_email}}" style="color: #2563eb; font-size: 15px; font-weight: 600; text-decoration: none">{{user_email}}</a>
+      </p>
 
-                    <!-- LOI Details -->
-                    <tr>
-                        <td style="padding: 0 30px 20px 30px;">
-                            <h2 style="margin: 0 0 16px 0; color: #111827; font-size: 20px; font-weight: 700;">
-                                Submission Details
-                            </h2>
-                            <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;">
-                                <tr>
-                                    <td style="padding: 16px 20px; border-bottom: 1px solid #e5e7eb;">
-                                        <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Payment Choice</p>
-                                        <p style="margin: 0; color: #111827; font-size: 16px; font-weight: 600;">
-                                            {{payment_choice}}
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 16px 20px; border-bottom: 1px solid #e5e7eb;">
-                                        <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Plan Selected</p>
-                                        <p style="margin: 0; color: #111827; font-size: 16px; font-weight: 600;">
-                                            {{plan_selected}}
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 16px 20px;">
-                                        <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Digital Signature</p>
-                                        <p style="margin: 0; color: #111827; font-size: 16px; font-weight: 600; font-style: italic;">{{signature}}</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+      <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; border-top: 1px solid #e5e7eb; padding-top: 16px">Institution</p>
+      <p style="margin: 0 0 16px 0; color: #111827; font-size: 15px; font-weight: 600">{{institution}}</p>
 
-                    <!-- Special Offer Context -->
-                    <tr>
-                        <td style="padding: 0 30px 30px 30px;">
-                            <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b; border-radius: 8px; padding: 20px;">
-                                <h3 style="margin: 0 0 12px 0; color: #92400e; font-size: 16px; font-weight: 700;">
-                                    💰 NACADA Special Offer
-                                </h3>
-                                <ul style="margin: 0; padding-left: 20px; color: #92400e; font-size: 14px; line-height: 1.8;">
-                                    <li style="margin-bottom: 8px;">
-                                        <strong>By November 1, 2025:</strong> $2,000 discount on implementation
-                                    </li>
-                                    <li>
-                                        <strong>By November 30, 2025:</strong> $1,000 discount on implementation
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+      <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; border-top: 1px solid #e5e7eb; padding-top: 16px">Title</p>
+      <p style="margin: 0; color: #111827; font-size: 15px; font-weight: 600">{{title}}</p>
+    </div>
+  </div>
 
-                    <!-- Action Items -->
-                    <tr>
-                        <td style="padding: 0 30px 30px 30px;">
-                            <div style="background-color: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 20px;">
-                                <h3 style="margin: 0 0 12px 0; color: #1e40af; font-size: 16px; font-weight: 700;">
-                                    ✓ Next Steps
-                                </h3>
-                                <ol style="margin: 0; padding-left: 20px; color: #1e40af; font-size: 14px; line-height: 1.8;">
-                                    <li style="margin-bottom: 8px;">Review the submission details above</li>
-                                    <li style="margin-bottom: 8px;">Contact {{name}} within 24 hours</li>
-                                    <li style="margin-bottom: 8px;">Schedule a demo and discuss implementation timeline</li>
-                                    <li>Add to CRM and update deal stage</li>
-                                </ol>
-                            </div>
-                        </td>
-                    </tr>
+  <!-- LOI Details -->
+  <div style="padding: 0 24px 20px 24px; background-color: #ffffff">
+    <h2 style="margin: 0 0 12px 0; color: #111827; font-size: 18px; font-weight: 700">Submission Details</h2>
+    <div style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 16px">
+      <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase">Payment Choice</p>
+      <p style="margin: 0 0 16px 0; color: #111827; font-size: 15px; font-weight: 600">{{payment_choice}}</p>
 
-                    <!-- Quick Actions -->
-                    <tr>
-                        <td style="padding: 0 30px 40px 30px; text-align: center;">
-                            <table role="presentation" style="margin: 0 auto;">
-                                <tr>
-                                    <td style="padding: 0 8px;">
-                                        <a href="mailto:{{user_email}}" style="display: inline-block; background-color: #2563eb; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px;">
-                                            Reply to Contact
-                                        </a>
-                                    </td>
-                                    <td style="padding: 0 8px;">
-                                        <a href="https://tcevaluator.com/contact" style="display: inline-block; background-color: #ffffff; color: #2563eb; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; border: 2px solid #2563eb;">
-                                            View Dashboard
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+      <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; border-top: 1px solid #e5e7eb; padding-top: 16px">Plan Selected</p>
+      <p style="margin: 0 0 16px 0; color: #111827; font-size: 15px; font-weight: 600">{{plan_selected}}</p>
 
-                    <!-- Footer -->
-                    <tr>
-                        <td style="background-color: #f9fafb; padding: 24px 30px; border-top: 1px solid #e5e7eb; text-align: center;">
-                            <p style="margin: 0; color: #6b7280; font-size: 12px; line-height: 1.6;">
-                                This is an automated notification from TCEvaluator.<br>
-                                Submission received on <strong>{{submission_date}}</strong>
-                            </p>
-                            <p style="margin: 16px 0 0 0; color: #9ca3af; font-size: 11px;">
-                                &copy; 2025 TCEvaluator. All rights reserved.
-                            </p>
-                        </td>
-                    </tr>
+      <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; font-weight: 500; text-transform: uppercase; border-top: 1px solid #e5e7eb; padding-top: 16px">Digital Signature</p>
+      <p style="margin: 0; color: #111827; font-size: 15px; font-weight: 600; font-style: italic">{{signature}}</p>
+    </div>
+  </div>
 
-                </table>
-            </td>
-        </tr>
-    </table>
-</body>
-</html>
+  <!-- Special Offer Context -->
+  <div style="padding: 0 24px 20px 24px; background-color: #ffffff">
+    <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 6px; padding: 16px">
+      <h3 style="margin: 0 0 8px 0; color: #92400e; font-size: 15px; font-weight: 600">💰 NACADA Special Offer</h3>
+      <ul style="margin: 0; padding-left: 20px; color: #92400e; font-size: 14px; line-height: 1.7">
+        <li style="margin-bottom: 6px"><strong>By November 1, 2025:</strong> $2,000 discount on implementation</li>
+        <li><strong>By November 30, 2025:</strong> $1,000 discount on implementation</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Action Items -->
+  <div style="padding: 0 24px 24px 24px; background-color: #ffffff">
+    <div style="background-color: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 16px">
+      <h3 style="margin: 0 0 8px 0; color: #1e40af; font-size: 15px; font-weight: 600">Next Steps</h3>
+      <ol style="margin: 0; padding-left: 20px; color: #1e40af; font-size: 14px; line-height: 1.7">
+        <li style="margin-bottom: 6px">Review the submission details above</li>
+        <li style="margin-bottom: 6px">Contact {{name}} within 24 hours</li>
+        <li style="margin-bottom: 6px">Schedule a demo and discuss implementation timeline</li>
+        <li>Add to CRM and update deal stage</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div style="padding: 0 24px 32px 24px; text-align: center; background-color: #ffffff">
+    <a href="mailto:{{user_email}}" style="display: inline-block; background-color: #2563eb; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 14px; margin: 0 4px">Reply to Contact</a>
+  </div>
+
+  <!-- Footer -->
+  <div style="padding: 24px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; border-radius: 0 0 8px 8px; text-align: center">
+    <p style="margin: 0; color: #6b7280; font-size: 12px">
+      This is an automated notification from TCEvaluator.
+    </p>
+    <p style="margin: 8px 0 0 0; color: #9ca3af; font-size: 11px">
+      &copy; 2025 TCEvaluator. All rights reserved.
+    </p>
+  </div>
+</div>
