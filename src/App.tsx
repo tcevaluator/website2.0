@@ -47,8 +47,8 @@ function App() {
               <a href="#comparison" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Comparison</a>
               <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">About</Link>
               <Link to="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Pricing</Link>
-              <Link to="/book-demo" className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
-                Book a Demo
+              <Link to="/contact" className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
+                Contact Us
               </Link>
             </div>
 
@@ -139,11 +139,11 @@ function App() {
               {/* CTA Section */}
               <div className="mt-12 space-y-4">
                 <Link
-                  to="/book-demo"
+                  to="/contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className="group flex items-center justify-between w-full bg-white text-gray-900 px-8 py-5 rounded-xl hover:bg-gray-100 transition-all font-semibold text-lg shadow-lg"
                 >
-                  <span>Book a Demo</span>
+                  <span>Contact Us</span>
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
 
@@ -742,7 +742,7 @@ function App() {
               <ul className="space-y-2 text-gray-400">
                 <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link to="/book-demo" className="hover:text-white transition-colors">Book Demo</Link></li>
+                <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               </ul>
             </div>
             <div>

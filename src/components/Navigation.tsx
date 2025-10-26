@@ -55,8 +55,8 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
             <Link to="/" className={linkClass('home')}>Home</Link>
             <Link to="/about" className={linkClass('about')}>About</Link>
             <Link to="/pricing" className={linkClass('pricing')}>Pricing</Link>
-            <Link to="/book-demo" className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
-              Book a Demo
+            <Link to="/contact" className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium">
+              Contact Us
             </Link>
           </div>
 
@@ -119,11 +119,11 @@ function Navigation({ activeLink, scrolled: externalScrolled }: NavigationProps)
 
                 <div className="mt-8">
                   <Link
-                    to="/book-demo"
+                    to="/contact"
                     onClick={closeMobileMenu}
                     className="block w-full bg-blue-600 text-white text-center px-6 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700"
                   >
-                    Book a Demo
+                    Contact Us
                   </Link>
                 </div>
               </div>

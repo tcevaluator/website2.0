@@ -25,9 +25,9 @@ function StripeCheckout({ planName, priceId, buttonText = 'Get Started', buttonC
           `   VITE_STRIPE_SECRET_KEY=sk_...\n\n` +
           `2. Create products and prices in your Stripe Dashboard\n\n` +
           `3. Update the priceId in the pricing page\n\n` +
-          `For now, redirecting to demo booking page...`
+          `For now, redirecting to contact page...`
         );
-        window.location.href = '/book-demo';
+        window.location.href = '/contact';
         return;
       }
 

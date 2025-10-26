@@ -11,7 +11,7 @@ const supabase = createClient(
   import.meta.env.VITE_SUPABASE_ANON_KEY
 );
 
-function BookDemo() {
+function ContactUs() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -65,7 +65,7 @@ function BookDemo() {
                 ],
                 context: {
                   pageUri: window.location.href,
-                  pageName: 'Book a Demo',
+                  pageName: 'Contact Us',
                 },
               }),
             }
@@ -190,9 +190,9 @@ function BookDemo() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4">
         <SEO
-          title="Demo Request Submitted | TCEvaluator"
-          description="Thank you for requesting a demo of TCEvaluator. Our team will contact you soon to schedule your personalized demonstration."
-          canonical="https://tcevaluator.com/book-demo"
+          title="Contact Request Submitted | TCEvaluator"
+          description="Thank you for contacting TCEvaluator. Our team will get back to you soon."
+          canonical="https://tcevaluator.com/contact"
         />
         <div className="max-w-2xl w-full bg-white rounded-3xl shadow-2xl p-12 text-center">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -200,7 +200,7 @@ function BookDemo() {
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Thank You!</h1>
           <p className="text-xl text-gray-600 mb-8">
-            We've received your demo request. Our team will reach out within 24 hours to schedule your personalized demonstration.
+            We've received your message. Our team will get back to you within 24 hours.
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
             <h3 className="font-semibold text-gray-900 mb-2">What happens next?</h3>
@@ -233,9 +233,9 @@ function BookDemo() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Book a Demo | TCEvaluator"
-        description="Schedule a personalized demo of TCEvaluator and see how AI can transform your transfer credit evaluation process. Book your demo today."
-        canonical="https://tcevaluator.com/book-demo"
+        title="Contact Us | TCEvaluator"
+        description="Get in touch with TCEvaluator to learn how AI can transform your transfer credit evaluation process. Contact us today."
+        canonical="https://tcevaluator.com/contact"
       />
       <Navigation />
 
@@ -244,16 +244,16 @@ function BookDemo() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 border border-blue-200 rounded-full mb-6">
             <Calendar size={16} className="text-blue-600" />
-            <span className="text-sm font-semibold text-blue-900">Schedule Your Demo</span>
+            <span className="text-sm font-semibold text-blue-900">Get in Touch</span>
           </div>
           <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            See TC Evaluator{' '}
+            Get in{' '}
             <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              in action
+              Touch With Us
             </span>
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Experience firsthand how TC Evaluator can transform your transfer credit evaluation process. Our team will walk you through a personalized demonstration.
+            Have questions? Want to see TCEvaluator in action? Contact our team to learn how we can transform your transfer credit process.
           </p>
         </div>
       </section>
@@ -517,7 +517,7 @@ function BookDemo() {
               <ul className="space-y-2 text-gray-400">
                 <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link to="/book-demo" className="hover:text-white transition-colors">Book Demo</Link></li>
+                <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               </ul>
             </div>
             <div>
@@ -538,4 +538,4 @@ function BookDemo() {
   );
 }
 
-export default BookDemo;
+export default ContactUs;

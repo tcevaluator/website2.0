@@ -5,7 +5,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App.tsx';
 import About from './pages/About.tsx';
 import Pricing from './pages/Pricing.tsx';
-import BookDemo from './pages/BookDemo.tsx';
+import ContactUs from './pages/ContactUs.tsx';
 import Success from './pages/Success.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.tsx';
 import Terms from './pages/Terms.tsx';
@@ -22,7 +22,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/" element={<App />} />
           <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<Pricing />} />
-          <Route path="/book-demo" element={<BookDemo />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/book-demo" element={<ContactUs />} />
           <Route path="/success" element={<Success />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />

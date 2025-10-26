@@ -172,7 +172,7 @@ function Pricing() {
                 </li>
               </ul>
               <a
-                href="/book-demo"
+                href="/contact"
                 className="block w-full text-center bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-all font-semibold"
               >
                 Contact Sales
@@ -216,10 +216,10 @@ function Pricing() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="/book-demo"
+              href="/contact"
               className="group bg-white text-blue-600 px-10 py-4 rounded-lg hover:bg-gray-50 transition-all font-bold text-lg shadow-xl hover:shadow-2xl flex items-center gap-2"
             >
-              Book a Demo
+              Contact Us
               <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
@@ -241,7 +241,7 @@ function Pricing() {
               <ul className="space-y-2 text-gray-400">
                 <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link to="/book-demo" className="hover:text-white transition-colors">Book Demo</Link></li>
+                <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               </ul>
             </div>
             <div>
