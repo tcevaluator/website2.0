@@ -216,7 +216,7 @@ function About() {
               href="/contact"
               className="group bg-gray-900 text-white px-10 py-4 rounded-lg hover:bg-gray-800 transition-all font-semibold text-lg shadow-xl hover:shadow-2xl flex items-center gap-2 hover:scale-105 duration-300"
             >
-              Request a Demo
+              Contact Us
               <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
