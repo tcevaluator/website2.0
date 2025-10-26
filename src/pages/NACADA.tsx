@@ -167,13 +167,16 @@ export default function NACADA() {
       });
 
       if (!checkoutResponse.ok) {
-        throw new Error('Failed to create checkout session');
+        const errorData = await checkoutResponse.json();
+        console.error('Checkout error response:', errorData);
+        throw new Error(errorData.error || 'Failed to create checkout session');
       }
 
       const { url } = await checkoutResponse.json();
       window.location.href = url;
     } catch (error) {
       console.error('Error creating checkout:', error);
+      alert(`Checkout Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
       setSubmitStatus('error');
       setIsSubmitting(false);
     }
