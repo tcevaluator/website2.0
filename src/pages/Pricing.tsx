@@ -148,23 +148,23 @@ function Pricing() {
             {/* Tier 3 Plan */}
             <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col">
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Tier 3</h3>
-                <p className="text-sm text-gray-600">For large institutions with complex needs</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Custom</h3>
+                <p className="text-sm text-gray-600">For institutions needing more evaluations or programs</p>
               </div>
               <div className="mb-6">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-gray-900">$4,900</span>
+                  <span className="text-4xl font-bold text-gray-900">-</span>
                   <span className="text-sm text-gray-600">/mo</span>
                 </div>
                 <div className="mt-2 pt-2 border-t border-gray-200">
-                  <p className="text-xs text-gray-600">+ $12,000 implementation</p>
-                  <p className="text-xs text-gray-500 mt-1">$14/evaluation</p>
+                  <p className="text-xs text-gray-600">-</p>
+                  <p className="text-xs text-gray-500 mt-1">-</p>
                 </div>
               </div>
               <ul className="space-y-3 mb-6 flex-grow">
                 <li className="flex items-start gap-2">
                   <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
-                  <span className="text-sm text-gray-700">350 evaluations/month</span>
+                  <span className="text-sm text-gray-700">-</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
