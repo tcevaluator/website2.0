@@ -104,7 +104,7 @@ function Pricing() {
               </ul>
               <StripeCheckout
                 planName="Professional"
-                priceId={import.meta.env.VITE_STRIPE_PROFESSIONAL_PRICE_ID}
+                priceId={import.meta.env.VITE_STRIPE_TIER1_PRICE_ID}
                 buttonText="Get Started"
                 buttonClass="group flex items-center justify-center gap-2 w-full text-center bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-bold shadow-xl"
               />
