@@ -89,7 +89,7 @@ function Pricing() {
                 </div>
                 <div className="mt-3 pt-3 border-t border-blue-400/30">
                   <p className="text-sm text-blue-100">+ $5000 implementation fee (one-time)</p>
-                  <p className="text-xs text-blue-200 mt-1">$17.50 effective cost per evaluation</p>
+                  <p className="text-xs text-blue-200 mt-1">$19 effective cost per evaluation</p>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
@@ -115,7 +115,7 @@ function Pricing() {
             <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-all">
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Tier 2</h3>
-                <p className="text-gray-600">For large institutions with custom needs</p>
+                <p className="text-gray-600">For institution with more volume or programs</p>
               </div>
               <div className="mb-8">
                 <div className="flex items-baseline gap-2">
@@ -124,7 +124,7 @@ function Pricing() {
                 </div>
                 <div className="mt-3 pt-3 border-t border-gray-200">
                   <p className="text-sm text-gray-600">+ $8,000 implementation fee (one-time)</p>
-                  <p className="text-xs text-gray-500 mt-1">$15 effective cost per evaluation</p>
+                  <p className="text-xs text-gray-500 mt-1">$17 effective cost per evaluation</p>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
@@ -145,126 +145,9 @@ function Pricing() {
               />
             </div>
     
-         {/* Custom Enterprise Plan */}
-            <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-all">
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Custom Enterprise Plans</h3>
-                <p className="text-gray-600">For institutions needing 500+ evaluations or 50+ programs per month</p>
-              </div>
-           
-               <a
-                href="/book-demo"
-                className="block w-full text-center bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-all font-semibold"
-              >
-                Contact Sales
-              </a>
-            </div>
-         </div>
-        </div>
-        <div className="mt-8 text-center">
-  <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-6 text-white">
-    <h3 className="text-2xl font-bold mb-2">Custom Enterprise Plans</h3>
-    <p className="text-blue-100 mb-4">For institutions needing 500+ evaluations or 50+ programs per month</p>
-    <a
-      href="/book-demo"
-      className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all font-semibold"
-    >
-      Contact Sales
-      <ArrowRight size={20} />
-    </a>
-  </div>
+        
 </div>
-      </section>
-      {/* Plan Comparison Table */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Full Feature Comparison</h2>
-            <p className="text-xl text-gray-600">Compare all features across our plans</p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="bg-gray-50">
-                  <th className="text-left py-4 px-6 font-semibold text-gray-900 border-b-2 border-gray-200">Feature</th>
-                  <th className="text-center py-4 px-6 font-semibold text-gray-900 border-b-2 border-gray-200">Starter</th>
-                  <th className="text-center py-4 px-6 font-semibold text-blue-600 border-b-2 border-blue-200 bg-blue-50">Professional</th>
-                  <th className="text-center py-4 px-6 font-semibold text-gray-900 border-b-2 border-gray-200">Enterprise</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">Monthly Evaluations</td>
-                  <td className="py-4 px-6 text-center text-gray-600">Up to 500</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50 font-semibold text-blue-600">Up to 2,500</td>
-                  <td className="py-4 px-6 text-center text-gray-600">Unlimited</td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">AI-Powered Evaluation</td>
-                  <td className="py-4 px-6 text-center"><Check className="text-green-600 mx-auto" size={20} /></td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50"><Check className="text-green-600 mx-auto" size={20} /></td>
-                  <td className="py-4 px-6 text-center"><Check className="text-green-600 mx-auto" size={20} /></td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">SIS Integration</td>
-                  <td className="py-4 px-6 text-center text-gray-600">Basic</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50 font-semibold text-blue-600">Advanced</td>
-                  <td className="py-4 px-6 text-center text-gray-600">Custom</td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">User Accounts</td>
-                  <td className="py-4 px-6 text-center text-gray-600">5</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50 font-semibold text-blue-600">Unlimited</td>
-                  <td className="py-4 px-6 text-center text-gray-600">Unlimited</td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">Support</td>
-                  <td className="py-4 px-6 text-center text-gray-600">Email</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50 font-semibold text-blue-600">Priority (4hr)</td>
-                  <td className="py-4 px-6 text-center text-gray-600">24/7 Dedicated</td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">Student Portal</td>
-                  <td className="py-4 px-6 text-center text-gray-400">—</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50"><Check className="text-green-600 mx-auto" size={20} /></td>
-                  <td className="py-4 px-6 text-center"><Check className="text-green-600 mx-auto" size={20} /></td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">Custom Rules Engine</td>
-                  <td className="py-4 px-6 text-center text-gray-400">—</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50"><Check className="text-green-600 mx-auto" size={20} /></td>
-                  <td className="py-4 px-6 text-center"><Check className="text-green-600 mx-auto" size={20} /></td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">Advanced Analytics</td>
-                  <td className="py-4 px-6 text-center text-gray-400">—</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50"><Check className="text-green-600 mx-auto" size={20} /></td>
-                  <td className="py-4 px-6 text-center"><Check className="text-green-600 mx-auto" size={20} /></td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">White Label</td>
-                  <td className="py-4 px-6 text-center text-gray-400">—</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50 text-gray-400">—</td>
-                  <td className="py-4 px-6 text-center"><Check className="text-green-600 mx-auto" size={20} /></td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">Account Manager</td>
-                  <td className="py-4 px-6 text-center text-gray-400">—</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50 text-gray-400">—</td>
-                  <td className="py-4 px-6 text-center"><Check className="text-green-600 mx-auto" size={20} /></td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-gray-900">SLA Guarantee</td>
-                  <td className="py-4 px-6 text-center text-gray-400">—</td>
-                  <td className="py-4 px-6 text-center bg-blue-50/50 text-gray-400">—</td>
-                  <td className="py-4 px-6 text-center"><Check className="text-green-600 mx-auto" size={20} /></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+    
 
       {/* FAQ Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
