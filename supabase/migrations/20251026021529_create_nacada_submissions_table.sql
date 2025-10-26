@@ -8,8 +8,9 @@
       - `signature` (text) - Digital signature
       - `name` (text) - Full name of signatory
       - `title` (text) - Job title
-      - `date` (date) - Date of submission
       - `email` (text) - Contact email
+      - `hubspot_submitted` (boolean) - Whether submitted to HubSpot
+      - `hubspot_error` (text) - HubSpot submission error if any
       - `created_at` (timestamptz) - Timestamp of submission
       - `updated_at` (timestamptz) - Last update timestamp
 
@@ -30,8 +31,9 @@ CREATE TABLE IF NOT EXISTS nacada_submissions (
   signature text NOT NULL,
   name text NOT NULL,
   title text NOT NULL,
-  date date NOT NULL,
   email text NOT NULL,
+  hubspot_submitted boolean DEFAULT false,
+  hubspot_error text,
   created_at timestamptz DEFAULT now(),
   updated_at timestamptz DEFAULT now()
 );
