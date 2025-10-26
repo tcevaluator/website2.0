@@ -321,7 +321,7 @@ function App() {
                 Reduce evaluation time from 45 minutes to 5 minutes with intelligent automation.
               </p>
               <div className="text-sm text-blue-600 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                  <Link to="/about" className="group bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:scale-105">
+                  <Link to="/about">
                   Learn More
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
