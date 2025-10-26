@@ -50,35 +50,16 @@ function Pricing() {
                 </div>
                 <p className="text-sm text-gray-500 mt-2">25 evaluations/month</p>
                 <div className="mt-3 pt-3 border-t border-gray-200">
-                  <p className="text-sm text-gray-600">+ $4,000 implementation fee (one-time)</p>
+                  <p className="text-sm text-gray-600">+ $3,000 implementation fee (one-time)</p>
                   <p className="text-xs text-gray-500 mt-1">$20 effective cost per evaluation</p>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
+                 <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">2 user accounts included</span>
+                  <span className="text-gray-700">3 programs supported</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">7 programs supported</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">AI-powered transcript evaluation</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">Basic SIS integration</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">Email support</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">Standard reporting dashboard</span>
-                </li>
+               
               </ul>
               <StripeCheckout
                 planName="Starter"
@@ -94,52 +75,24 @@ function Pricing() {
                 MOST POPULAR
               </div>
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Professional</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Tier 1</h3>
                 <p className="text-blue-100">For growing institutions with high volume</p>
               </div>
               <div className="mb-8">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-white">$1,000</span>
+                  <span className="text-5xl font-bold text-white">$1,900</span>
                   <span className="text-blue-100">/month</span>
                 </div>
-                <p className="text-sm text-blue-200 mt-2">60 evaluations/month</p>
+                <p className="text-sm text-blue-200 mt-2">100 evaluations/month</p>
                 <div className="mt-3 pt-3 border-t border-blue-400/30">
-                  <p className="text-sm text-blue-100">+ $6,500 implementation fee (one-time)</p>
+                  <p className="text-sm text-blue-100">+ $5000 implementation fee (one-time)</p>
                   <p className="text-xs text-blue-200 mt-1">$17.50 effective cost per evaluation</p>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
                   <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white font-medium">Everything in Starter, plus:</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">Additional 3 user accounts included</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">15 programs supported</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">Advanced SIS integration (Banner, Jenzabar, etc.)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">Priority support with 4-hour response time</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">Advanced analytics & reporting</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">Custom articulation rules</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-yellow-400 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">Student-facing portal</span>
+                  <span className="text-white">20 programs supported</span>
                 </li>
               </ul>
               <StripeCheckout
@@ -153,7 +106,7 @@ function Pricing() {
             {/* Enterprise Plan */}
             <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-all">
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Tier 2</h3>
                 <p className="text-gray-600">For large institutions with custom needs</p>
               </div>
               <div className="mb-8">
@@ -161,48 +114,17 @@ function Pricing() {
                   <span className="text-5xl font-bold text-gray-900">$2,000</span>
                   <span className="text-gray-600">/month</span>
                 </div>
-                <p className="text-sm text-gray-500 mt-2">135 evaluations/month</p>
+                <p className="text-sm text-gray-500 mt-2">170 evaluations/month</p>
                 <div className="mt-3 pt-3 border-t border-gray-200">
-                  <p className="text-sm text-gray-600">+ $10,000 implementation fee (one-time)</p>
+                  <p className="text-sm text-gray-600">+ $8,000 implementation fee (one-time)</p>
                   <p className="text-xs text-gray-500 mt-1">$15 effective cost per evaluation</p>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
+               
                 <li className="flex items-start gap-3">
                   <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700 font-medium">Everything in Professional, plus:</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">Additional 5 user accounts included</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">30 programs supported</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">Dedicated account manager</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">24/7 phone & chat support</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">Custom API integrations</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">White-label options</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">On-site training & implementation</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="text-green-600 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-700">SLA guarantees</span>
+                  <span className="text-gray-700">40 programs supported</span>
                 </li>
               </ul>
               <a
