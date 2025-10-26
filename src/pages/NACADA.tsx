@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import { FileText, CheckCircle2, Info } from 'lucide-react';
+import { createClient } from '@supabase/supabase-js';
+import emailjs from '@emailjs/browser';
 import SEO from '../components/SEO';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 
 export default function NACADA() {
   const [formData, setFormData] = useState({
@@ -19,24 +26,121 @@ export default function NACADA() {
   const handlePayNow = async (planName: string, priceId: string, implementationFee: number) => {
     setIsSubmitting(true);
     try {
-      const submitResponse = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-nacada`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
-        },
-        body: JSON.stringify({
+      let hubspotSubmitted = false;
+      let hubspotError = null;
+
+      const hubspotAccessToken = import.meta.env.VITE_HUBSPOT_ACCESS_TOKEN;
+      if (hubspotAccessToken) {
+        try {
+          const hubspotResponse = await fetch(
+            "https://api.hubapi.com/crm/v3/objects/contacts",
+            {
+              method: "POST",
+              headers: {
+                "Authorization": `Bearer ${hubspotAccessToken}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                properties: {
+                  email: formData.email,
+                  firstname: formData.name.split(" ")[0],
+                  lastname: formData.name.split(" ").slice(1).join(" ") || formData.name,
+                  company: formData.institution,
+                  jobtitle: formData.title,
+                  hs_lead_status: "NEW",
+                  lifecyclestage: "lead",
+                  lead_source: "NACADA Conference LOI",
+                  nacada_loi_signature: formData.signature,
+                  nacada_payment_choice: 'now',
+                  nacada_plan_selected: planName,
+                },
+              }),
+            }
+          );
+
+          if (hubspotResponse.ok) {
+            hubspotSubmitted = true;
+          } else {
+            const errorText = await hubspotResponse.text();
+            hubspotError = `HubSpot API error: ${errorText}`;
+            console.error(hubspotError);
+          }
+        } catch (error) {
+          hubspotError = error instanceof Error ? error.message : 'HubSpot submission failed';
+          console.error('HubSpot submission error:', error);
+        }
+      }
+
+      const { error: dbError } = await supabase
+        .from('nacada_submissions')
+        .insert({
           institution: formData.institution,
           signature: formData.signature,
           name: formData.name,
           title: formData.title,
           email: formData.email,
-          payment_choice: 'now'
-        })
-      });
+          payment_choice: 'now',
+          hubspot_submitted: hubspotSubmitted,
+          hubspot_error: hubspotError,
+        });
 
-      if (!submitResponse.ok) {
-        throw new Error('Failed to submit LOI');
+      if (dbError) {
+        throw new Error('Failed to save submission');
+      }
+
+      const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const emailjsNacadaTemplateId = import.meta.env.VITE_EMAILJS_NACADA_TEMPLATE_ID;
+      const emailjsNacadaAdminTemplateId = import.meta.env.VITE_EMAILJS_NACADA_ADMIN_TEMPLATE_ID;
+      const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'info@tcevaluator.com';
+
+      if (emailjsServiceId && emailjsNacadaTemplateId && emailjsPublicKey) {
+        try {
+          await emailjs.send(
+            emailjsServiceId,
+            emailjsNacadaTemplateId,
+            {
+              to_email: formData.email,
+              to_name: formData.name,
+              institution: formData.institution,
+              title: formData.title,
+              signature: formData.signature,
+              payment_choice: 'Pay Now',
+              plan_selected: planName,
+              from_email: 'info@tcevaluator.com',
+              reply_to: 'info@tcevaluator.com',
+            },
+            emailjsPublicKey
+          );
+          console.log('Confirmation email sent successfully');
+        } catch (emailError) {
+          console.error('Failed to send confirmation email:', emailError);
+        }
+
+        if (emailjsNacadaAdminTemplateId && adminEmail) {
+          try {
+            await emailjs.send(
+              emailjsServiceId,
+              emailjsNacadaAdminTemplateId,
+              {
+                to_email: adminEmail,
+                name: formData.name,
+                user_email: formData.email,
+                institution: formData.institution,
+                title: formData.title,
+                signature: formData.signature,
+                payment_choice: 'Pay Now',
+                plan_selected: planName,
+                from_email: 'info@tcevaluator.com',
+                reply_to: formData.email,
+              },
+              emailjsPublicKey
+            );
+            console.log('Admin notification sent successfully');
+          } catch (emailError) {
+            console.error('Failed to send admin notification:', emailError);
+          }
+        }
       }
 
       const checkoutResponse = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/create-checkout-session`, {
@@ -81,24 +185,120 @@ export default function NACADA() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-nacada`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
-        },
-        body: JSON.stringify({
+      let hubspotSubmitted = false;
+      let hubspotError = null;
+
+      const hubspotAccessToken = import.meta.env.VITE_HUBSPOT_ACCESS_TOKEN;
+      if (hubspotAccessToken) {
+        try {
+          const hubspotResponse = await fetch(
+            "https://api.hubapi.com/crm/v3/objects/contacts",
+            {
+              method: "POST",
+              headers: {
+                "Authorization": `Bearer ${hubspotAccessToken}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                properties: {
+                  email: formData.email,
+                  firstname: formData.name.split(" ")[0],
+                  lastname: formData.name.split(" ").slice(1).join(" ") || formData.name,
+                  company: formData.institution,
+                  jobtitle: formData.title,
+                  hs_lead_status: "NEW",
+                  lifecyclestage: "lead",
+                  lead_source: "NACADA Conference LOI",
+                  nacada_loi_signature: formData.signature,
+                  nacada_payment_choice: paymentChoice || 'later',
+                },
+              }),
+            }
+          );
+
+          if (hubspotResponse.ok) {
+            hubspotSubmitted = true;
+          } else {
+            const errorText = await hubspotResponse.text();
+            hubspotError = `HubSpot API error: ${errorText}`;
+            console.error(hubspotError);
+          }
+        } catch (error) {
+          hubspotError = error instanceof Error ? error.message : 'HubSpot submission failed';
+          console.error('HubSpot submission error:', error);
+        }
+      }
+
+      const { error: dbError } = await supabase
+        .from('nacada_submissions')
+        .insert({
           institution: formData.institution,
           signature: formData.signature,
           name: formData.name,
           title: formData.title,
           email: formData.email,
-          payment_choice: paymentChoice
-        })
-      });
+          payment_choice: paymentChoice,
+          hubspot_submitted: hubspotSubmitted,
+          hubspot_error: hubspotError,
+        });
 
-      if (!response.ok) {
-        throw new Error('Failed to submit LOI');
+      if (dbError) {
+        throw new Error('Failed to save submission');
+      }
+
+      const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const emailjsNacadaTemplateId = import.meta.env.VITE_EMAILJS_NACADA_TEMPLATE_ID;
+      const emailjsNacadaAdminTemplateId = import.meta.env.VITE_EMAILJS_NACADA_ADMIN_TEMPLATE_ID;
+      const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'info@tcevaluator.com';
+
+      if (emailjsServiceId && emailjsNacadaTemplateId && emailjsPublicKey) {
+        try {
+          await emailjs.send(
+            emailjsServiceId,
+            emailjsNacadaTemplateId,
+            {
+              to_email: formData.email,
+              to_name: formData.name,
+              institution: formData.institution,
+              title: formData.title,
+              signature: formData.signature,
+              payment_choice: 'Pay Later',
+              plan_selected: 'N/A',
+              from_email: 'info@tcevaluator.com',
+              reply_to: 'info@tcevaluator.com',
+            },
+            emailjsPublicKey
+          );
+          console.log('Confirmation email sent successfully');
+        } catch (emailError) {
+          console.error('Failed to send confirmation email:', emailError);
+        }
+
+        if (emailjsNacadaAdminTemplateId && adminEmail) {
+          try {
+            await emailjs.send(
+              emailjsServiceId,
+              emailjsNacadaAdminTemplateId,
+              {
+                to_email: adminEmail,
+                name: formData.name,
+                user_email: formData.email,
+                institution: formData.institution,
+                title: formData.title,
+                signature: formData.signature,
+                payment_choice: 'Pay Later',
+                plan_selected: 'N/A',
+                from_email: 'info@tcevaluator.com',
+                reply_to: formData.email,
+              },
+              emailjsPublicKey
+            );
+            console.log('Admin notification sent successfully');
+          } catch (emailError) {
+            console.error('Failed to send admin notification:', emailError);
+          }
+        }
       }
 
       setSubmitStatus('success');
