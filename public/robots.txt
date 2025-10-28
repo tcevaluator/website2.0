@@ -4,6 +4,3 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://tcevaluator.com/sitemap.xml
-
-# Crawl-delay for polite bots
-Crawl-delay: 1
