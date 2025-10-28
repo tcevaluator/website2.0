@@ -1,0 +1,9 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tcevaluator.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1

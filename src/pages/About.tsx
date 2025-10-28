@@ -7,9 +7,10 @@ function About() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="About TCEvaluator | AI-Powered Transfer Credit Solutions"
-        description="Learn how TCEvaluator revolutionizes transfer credit evaluation with AI technology, helping colleges and universities scale their operations efficiently."
-        canonical="https://tcevaluator.com/about"
+        title="About TCEvaluator | AI Credit Transfer Evaluation Software"
+        description="Discover how TCEvaluator's AI credit transfer analysis revolutionizes transcript evaluation for higher education. Learn about our automated credit transfer evaluation technology helping institutions process transfers 80% faster."
+        keywords="AI credit transfer evaluation, automated transcript analysis, transfer credit software, AI-powered evaluation, credit transfer technology"
+        canonical="/about"
       />
       <Navigation activeLink="about" />
 

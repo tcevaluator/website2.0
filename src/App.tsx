@@ -27,9 +27,47 @@ function App() {
     }
   }, [videoOpen, mobileMenuOpen]);
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TCEvaluator",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "150"
+    },
+    "description": "AI-powered transfer credit evaluation and analysis software for higher education institutions. Automate transcript evaluation and credit transfer analysis.",
+    "featureList": [
+      "AI credit transfer analysis",
+      "Automated transcript evaluation",
+      "Credit transfer management",
+      "Real-time evaluation tracking",
+      "Batch processing",
+      "Integration with student information systems"
+    ],
+    "url": "https://tcevaluator.com",
+    "author": {
+      "@type": "Organization",
+      "name": "TCEvaluator",
+      "url": "https://tcevaluator.com"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      <SEO />
+      <SEO
+        title="TCEvaluator - AI Credit Transfer Analysis & Evaluation Software"
+        description="Automate your credit transfer evaluation with TCEvaluator's AI-powered platform. Streamline transcript analysis, reduce evaluation time by 80%, and improve accuracy. Transform how your institution handles transfer credits."
+        keywords="AI credit transfer analysis, AI credit transfer evaluation, automated transcript evaluation, credit transfer software, AI transcript analysis, transfer credit management system, higher education transfer credits, AI-powered credit evaluation, academic credit transfer, transcript evaluation software"
+        schema={organizationSchema}
+      />
       <PromoBanner onVisibilityChange={setBannerVisible} />
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
@@ -193,13 +231,13 @@ function App() {
                 <span className="text-sm font-medium text-gray-700">Patent Pending Technology</span>
               </div>
               <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight">
-                Transfer credit evaluation,{' '}
+                AI Credit Transfer Analysis{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                  powered by AI
+                  That Works
                 </span>
               </h1>
               <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                Reduce evaluation time from 45 minutes to 5 minutes. Join leading institutions transforming their transfer credit process.
+                Automate transcript evaluation and credit transfer analysis. Reduce evaluation time by 80% with AI-powered transfer credit evaluation software trusted by leading institutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link to="/about" className="group bg-gray-900 text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:scale-105">

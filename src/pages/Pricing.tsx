@@ -8,9 +8,10 @@ function Pricing() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Pricing Plans | TCEvaluator"
-        description="Choose the perfect TCEvaluator plan for your institution. Flexible pricing for colleges and universities of all sizes. Start automating transfer credit evaluations today."
-        canonical="https://tcevaluator.com/pricing"
+        title="AI Credit Transfer Evaluation Pricing | TCEvaluator"
+        description="Affordable AI credit transfer analysis and evaluation software pricing. Plans starting at $299/month for automated transcript evaluation. Flexible pricing for institutions of all sizes. Save thousands on manual credit transfer evaluation."
+        keywords="AI credit transfer pricing, transfer credit evaluation cost, AI transcript evaluation pricing, credit transfer software pricing, higher education software pricing"
+        canonical="/pricing"
       />
       <Navigation activeLink="pricing" />
 
