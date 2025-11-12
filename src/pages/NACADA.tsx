@@ -371,7 +371,7 @@ export default function NACADA() {
                 <ul className="space-y-2 text-blue-800">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={20} className="flex-shrink-0 mt-0.5" />
-                    <span>Execute <strong>on or before November 1, 2025</strong>: Receive a <strong>$2,000 discount</strong> on the setup fee</span>
+                    <span>Submit <strong>on or before November 30, 2025</strong>: Receive a <strong>$2,000 discount</strong> on the setup fee</span>
                   </li>
                   
                 </ul>
@@ -384,7 +384,7 @@ export default function NACADA() {
 
             <div className="prose prose-gray max-w-none mb-8">
               <p className="text-gray-700 leading-relaxed mb-4">
-                This Non-Binding Letter of Intent ("LOI") outlines the general terms and intent of the parties with respect to a potential subscription to the TCEvaluator software.
+                This Non-Binding Letter of Interest ("LOI") outlines the general terms and intent of the parties with respect to a potential subscription to the TCEvaluator software.
               </p>
 
               <h3 className="text-lg font-bold text-gray-900 mb-3">1. Non-Binding Letter of Intent</h3>
@@ -395,7 +395,7 @@ export default function NACADA() {
               <h3 className="text-lg font-bold text-gray-900 mb-3">2. Proposed Terms</h3>
               <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
                 <li>
-                  If this LOI is executed <strong>on or before November 1, 2025</strong>, Purchaser will receive a <strong>$2,000 discount</strong> on the setup fee.
+                  If this LOI is executed <strong>on or before November 30, 2025</strong>, Purchaser will receive a <strong>$2,000 discount</strong> on the setup fee.
                 </li>
                 <li>
                   If this LOI is executed <strong>after November 1 but on or before November 30, 2025</strong>, Purchaser will receive a <strong>$1,000 discount</strong> on the setup fee.
