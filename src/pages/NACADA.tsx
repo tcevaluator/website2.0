@@ -397,9 +397,7 @@ export default function NACADA() {
                 <li>
                   If this LOI is executed <strong>on or before November 30, 2025</strong>, Purchaser will receive a <strong>$2,000 discount</strong> on the setup fee.
                 </li>
-                <li>
-                  If this LOI is executed <strong>after November 1 but on or before November 30, 2025</strong>, Purchaser will receive a <strong>$1,000 discount</strong> on the setup fee.
-                </li>
+               
               </ul>
 
               <h3 className="text-lg font-bold text-gray-900 mb-3">3. Non-Binding Nature</h3>
