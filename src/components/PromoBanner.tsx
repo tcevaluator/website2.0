@@ -12,7 +12,7 @@ export default function PromoBanner({ onVisibilityChange }: PromoBannerProps) {
         <div className="flex items-center gap-2">
           <Sparkles size={18} className="flex-shrink-0" />
           <p className="text-sm font-medium">
-            <span className="hidden sm:inline">NACADA Conference Special: </span>
+            <span className="hidden sm:inline">MACRAO Conference Special: </span>
             Save up to $2,000 on setup fees!{' '}
             <Link to="/nacada" className="underline font-semibold hover:text-blue-100">
               Learn more
