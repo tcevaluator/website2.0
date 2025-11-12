@@ -344,8 +344,8 @@ export default function NACADA() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="NACADA Conference Special Offer - TCEvaluator"
-        description="Exclusive NACADA conference offer for TCEvaluator - Save up to $2,000 on setup fees"
+        title="MACRAO Conference Special Offer - TCEvaluator"
+        description="Exclusive MACRAO conference offer for TCEvaluator - Save up to $2,000 on setup fees"
         canonical="/nacada"
       />
 
@@ -357,7 +357,7 @@ export default function NACADA() {
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <FileText size={32} className="text-blue-600" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">NACADA Conference Special Offer</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">MACRAO Conference Special Offer</h1>
             <p className="text-xl text-gray-600">
               Non-Binding Letter of Intent
             </p>
