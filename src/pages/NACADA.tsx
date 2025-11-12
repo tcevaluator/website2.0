@@ -380,7 +380,7 @@ export default function NACADA() {
           </div>
 
           <div className="bg-white rounded-2xl border border-gray-200 p-8 mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Letter of Intent</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Letter of Interest</h2>
 
             <div className="prose prose-gray max-w-none mb-8">
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -389,7 +389,7 @@ export default function NACADA() {
 
               <h3 className="text-lg font-bold text-gray-900 mb-3">1. Non-Binding Letter of Intent</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                This Non-Binding Letter of Intent ("LOI") outlines the general terms and intent of the parties with respect to a potential subscription to the TCEvaluator software.
+                This Non-Binding Letter of Interest ("LOI") outlines the general terms and intent of the parties with respect to a potential subscription to the TCEvaluator software.
               </p>
 
               <h3 className="text-lg font-bold text-gray-900 mb-3">2. Proposed Terms</h3>
@@ -420,7 +420,7 @@ export default function NACADA() {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
                 <p className="text-gray-600 mb-4">
-                  Your Letter of Intent has been submitted successfully. You will receive a confirmation email shortly.
+                  Your Letter of Interest has been submitted successfully. You will receive a confirmation email shortly.
                 </p>
                 <p className="text-sm text-gray-500">
                   Our team will contact you within 24 hours to discuss next steps.
@@ -473,17 +473,14 @@ export default function NACADA() {
                       Flexible
                     </div>
                     <p className="text-gray-700 mb-4">
-                      Submit your Letter of Intent and pay the setup fee later.
+                      Submit your Letter of Interest and pay the setup fee later.
                     </p>
                     <ul className="space-y-2 text-sm text-gray-600 mb-6">
                       <li className="flex items-start gap-2">
                         <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5 text-gray-400" />
-                        <span>$2,000 discount if paid by Nov 1</span>
+                        <span>$2,000 discount if paid by Nov 30</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5 text-gray-400" />
-                        <span>$1,000 discount if paid by Nov 30</span>
-                      </li>
+                     
                       <li className="flex items-start gap-2">
                         <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5 text-gray-400" />
                         <span>Standard processing timeline</span>
@@ -588,7 +585,7 @@ export default function NACADA() {
 
                 <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                   <p className="text-sm text-gray-600">
-                    By submitting this form, you acknowledge that this Letter of Intent is non-binding and serves as an expression of interest only. No legal obligation is created until a formal agreement is executed by both parties.
+                    By submitting this form, you acknowledge that this Letter of Interest is non-binding and serves as an expression of interest only. No legal obligation is created until a formal agreement is executed by both parties.
                   </p>
                 </div>
 
