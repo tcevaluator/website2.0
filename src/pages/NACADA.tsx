@@ -373,10 +373,7 @@ export default function NACADA() {
                     <CheckCircle2 size={20} className="flex-shrink-0 mt-0.5" />
                     <span>Execute <strong>on or before November 1, 2025</strong>: Receive a <strong>$2,000 discount</strong> on the setup fee</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={20} className="flex-shrink-0 mt-0.5" />
-                    <span>Execute <strong>after November 1 but on or before November 30, 2025</strong>: Receive a <strong>$1,000 discount</strong> on the setup fee</span>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
