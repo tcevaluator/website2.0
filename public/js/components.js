@@ -11,7 +11,7 @@ function createNavigation(activeLink = '') {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
           </svg>
           <p class="text-sm font-medium">
-            <span class="hidden sm:inline">NACADA Conference Special: </span>
+            <span class="hidden sm:inline">MACRAO Conference Special: </span>
             Save up to $2,000 on setup fees!
             <a href="/nacada.html" class="underline font-semibold hover:text-blue-100">Learn more</a>
           </p>
