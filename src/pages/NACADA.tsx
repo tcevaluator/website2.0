@@ -384,12 +384,12 @@ export default function NACADA() {
 
             <div className="prose prose-gray max-w-none mb-8">
               <p className="text-gray-700 leading-relaxed mb-4">
-                This Non-Binding Letter of Interest ("LOI") outlines the general terms and intent of the parties with respect to a potential subscription to the TCEvaluator software.
+                This Non-Binding Letter of Interest ("LOI") outlines the general terms and interest of the parties with respect to a potential subscription to the TCEvaluator software.
               </p>
 
-              <h3 className="text-lg font-bold text-gray-900 mb-3">1. Non-Binding Letter of Intent</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">1. Non-Binding Letter of Interest</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                This Non-Binding Letter of Interest ("LOI") outlines the general terms and intent of the parties with respect to a potential subscription to the TCEvaluator software.
+                This Non-Binding Letter of Interest ("LOI") outlines the general terms and interest of the parties with respect to a potential subscription to the TCEvaluator software.
               </p>
 
               <h3 className="text-lg font-bold text-gray-900 mb-3">2. Proposed Terms</h3>
@@ -709,7 +709,7 @@ export default function NACADA() {
                         disabled={isSubmitting}
                         className="bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {isSubmitting ? 'Submitting...' : 'Submit Letter of Intent'}
+                        {isSubmitting ? 'Submitting...' : 'Submit Letter of Interest'}
                       </button>
                     </div>
                   </div>
