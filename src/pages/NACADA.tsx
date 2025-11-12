@@ -359,7 +359,7 @@ export default function NACADA() {
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">MACRAO Conference Special Offer</h1>
             <p className="text-xl text-gray-600">
-              Non-Binding Letter of Intent
+              Non-Binding Letter of Interest
             </p>
           </div>
 
