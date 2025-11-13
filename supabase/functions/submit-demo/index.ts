@@ -58,28 +58,31 @@ Deno.serve(async (req: Request) => {
       throw error;
     }
 
-    // Send email asynchronously without blocking the response
+    // Send confirmation email and WAIT for it to complete
     const emailApiUrl = `${Deno.env.get("SUPABASE_URL")}/functions/v1/send-confirmation-email`;
-    fetch(emailApiUrl, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        to: submission.email,
-        name: `${submission.first_name} ${submission.last_name}`,
-        institution: submission.institution,
-      }),
-    }).then(async (emailResponse) => {
+    try {
+      const emailResponse = await fetch(emailApiUrl, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: submission.email,
+          name: `${submission.first_name} ${submission.last_name}`,
+          institution: submission.institution,
+        }),
+      });
+
       if (emailResponse.ok) {
         console.log("Email sent successfully to:", submission.email);
       } else {
-        console.error("Email sending failed:", await emailResponse.text());
+        const errorText = await emailResponse.text();
+        console.error("Email sending failed:", errorText);
       }
-    }).catch((err) => {
+    } catch (err) {
       console.error("Email sending error:", err);
-    });
+    }
 
     return new Response(
       JSON.stringify({ success: true, data }),

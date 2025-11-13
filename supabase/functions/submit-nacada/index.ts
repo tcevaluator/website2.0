@@ -101,95 +101,103 @@ Deno.serve(async (req: Request) => {
     if (resendApiKey) {
       const adminEmail = Deno.env.get("ADMIN_EMAIL") || "info@tcevaluator.com";
 
-      fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${resendApiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "TCEvaluator <noreply@tcevaluator.com>",
-          to: [adminEmail],
-          subject: "New NACADA LOI Submission",
-          html: `
-            <h2>New NACADA Letter of Intent Submission</h2>
-            <p><strong>Institution:</strong> ${submission.institution}</p>
-            <p><strong>Name:</strong> ${submission.name}</p>
-            <p><strong>Title:</strong> ${submission.title}</p>
-            <p><strong>Email:</strong> ${submission.email}</p>
-            <p><strong>Signature:</strong> ${submission.signature}</p>
-            <p><strong>Payment Choice:</strong> ${submission.payment_choice === 'now' ? 'Pay Now (Immediate $2,000 discount)' : 'Pay Later'}</p>
-            <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
-            ${hubspotSubmitted ? '<p style="color: green;">✓ Successfully added to HubSpot</p>' : '<p style="color: orange;">⚠ Not added to HubSpot</p>'}
-          `,
-        }),
-      }).then(async (emailResponse) => {
-        if (emailResponse.ok) {
+      // Send admin notification email and WAIT for it
+      try {
+        const adminEmailResponse = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${resendApiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: "TCEvaluator <noreply@tcevaluator.com>",
+            to: [adminEmail],
+            subject: "New NACADA LOI Submission",
+            html: `
+              <h2>New NACADA Letter of Intent Submission</h2>
+              <p><strong>Institution:</strong> ${submission.institution}</p>
+              <p><strong>Name:</strong> ${submission.name}</p>
+              <p><strong>Title:</strong> ${submission.title}</p>
+              <p><strong>Email:</strong> ${submission.email}</p>
+              <p><strong>Signature:</strong> ${submission.signature}</p>
+              <p><strong>Payment Choice:</strong> ${submission.payment_choice === 'now' ? 'Pay Now (Immediate $2,000 discount)' : 'Pay Later'}</p>
+              <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
+              ${hubspotSubmitted ? '<p style="color: green;">✓ Successfully added to HubSpot</p>' : '<p style="color: orange;">⚠ Not added to HubSpot</p>'}
+            `,
+          }),
+        });
+
+        if (adminEmailResponse.ok) {
           console.log("Admin notification sent successfully");
         } else {
-          console.error("Admin notification failed:", await emailResponse.text());
+          const errorText = await adminEmailResponse.text();
+          console.error("Admin notification failed:", errorText);
         }
-      }).catch((err) => {
+      } catch (err) {
         console.error("Admin notification error:", err);
-      });
+      }
 
-      fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${resendApiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "TCEvaluator <noreply@tcevaluator.com>",
-          to: [submission.email],
-          subject: "NACADA Conference Offer - Letter of Intent Received",
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #1f2937;">Thank You for Your Interest!</h2>
+      // Send confirmation email to user and WAIT for it
+      try {
+        const userEmailResponse = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${resendApiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: "TCEvaluator <noreply@tcevaluator.com>",
+            to: [submission.email],
+            subject: "NACADA Conference Offer - Letter of Intent Received",
+            html: `
+              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                <h2 style="color: #1f2937;">Thank You for Your Interest!</h2>
 
-              <p>Dear ${submission.name},</p>
+                <p>Dear ${submission.name},</p>
 
-              <p>Thank you for submitting your Letter of Intent for the NACADA Conference special offer. We have received your submission and will be in touch shortly.</p>
+                <p>Thank you for submitting your Letter of Intent for the NACADA Conference special offer. We have received your submission and will be in touch shortly.</p>
 
-              <h3 style="color: #2563eb;">Your Submission Details:</h3>
-              <ul style="list-style: none; padding: 0;">
-                <li style="padding: 8px 0;"><strong>Institution:</strong> ${submission.institution}</li>
-                <li style="padding: 8px 0;"><strong>Name:</strong> ${submission.name}</li>
-                <li style="padding: 8px 0;"><strong>Title:</strong> ${submission.title}</li>
-                <li style="padding: 8px 0;"><strong>Email:</strong> ${submission.email}</li>
-              </ul>
-
-              <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 16px; margin: 24px 0;">
-                <h4 style="margin: 0 0 8px 0; color: #1e40af;">Special Offer Reminder:</h4>
-                <ul style="margin: 0; padding-left: 20px;">
-                  <li>Execute on or before November 1, 2025: <strong>$2,000 discount</strong></li>
-                  <li>Execute after November 1 but on or before November 30, 2025: <strong>$1,000 discount</strong></li>
+                <h3 style="color: #2563eb;">Your Submission Details:</h3>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="padding: 8px 0;"><strong>Institution:</strong> ${submission.institution}</li>
+                  <li style="padding: 8px 0;"><strong>Name:</strong> ${submission.name}</li>
+                  <li style="padding: 8px 0;"><strong>Title:</strong> ${submission.title}</li>
+                  <li style="padding: 8px 0;"><strong>Email:</strong> ${submission.email}</li>
                 </ul>
+
+                <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 16px; margin: 24px 0;">
+                  <h4 style="margin: 0 0 8px 0; color: #1e40af;">Special Offer Reminder:</h4>
+                  <ul style="margin: 0; padding-left: 20px;">
+                    <li>Execute on or before November 1, 2025: <strong>$2,000 discount</strong></li>
+                    <li>Execute after November 1 but on or before November 30, 2025: <strong>$1,000 discount</strong></li>
+                  </ul>
+                </div>
+
+                <p>Our team will contact you within 24 hours to discuss the next steps and answer any questions you may have.</p>
+
+                <p>If you have any immediate questions, please don't hesitate to reach out to us at <a href="mailto:info@tcevaluator.com">info@tcevaluator.com</a>.</p>
+
+                <p style="margin-top: 32px;">Best regards,<br>The TCEvaluator Team</p>
+
+                <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 32px 0;">
+
+                <p style="font-size: 12px; color: #6b7280;">
+                  This is an automated confirmation email. Please do not reply directly to this message.
+                </p>
               </div>
+            `,
+          }),
+        });
 
-              <p>Our team will contact you within 24 hours to discuss the next steps and answer any questions you may have.</p>
-
-              <p>If you have any immediate questions, please don't hesitate to reach out to us at <a href="mailto:info@tcevaluator.com">info@tcevaluator.com</a>.</p>
-
-              <p style="margin-top: 32px;">Best regards,<br>The TCEvaluator Team</p>
-
-              <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 32px 0;">
-
-              <p style="font-size: 12px; color: #6b7280;">
-                This is an automated confirmation email. Please do not reply directly to this message.
-              </p>
-            </div>
-          `,
-        }),
-      }).then(async (emailResponse) => {
-        if (emailResponse.ok) {
+        if (userEmailResponse.ok) {
           console.log("Confirmation email sent successfully to:", submission.email);
         } else {
-          console.error("Confirmation email failed:", await emailResponse.text());
+          const errorText = await userEmailResponse.text();
+          console.error("Confirmation email failed:", errorText);
         }
-      }).catch((err) => {
+      } catch (err) {
         console.error("Confirmation email error:", err);
-      });
+      }
     }
 
     return new Response(
